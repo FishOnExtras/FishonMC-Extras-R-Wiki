@@ -56,7 +56,7 @@ title: {{ $params.rawEp }}
 
 <hr>
 
-<div class="back-home"><VPButton text="← Back to Placeholders" href="/placeholder/" theme="alt" /></div>
+<div class="back-home"><VPButton text="← Back to Placeholders" href="/0.3.10/placeholder/" theme="alt" /></div>
 
 <style module>
 table td:nth-child(3) {

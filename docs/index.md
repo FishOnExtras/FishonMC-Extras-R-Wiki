@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: Placeholder Docs
-      link: /placeholder/
+      link: /0.3.10/placeholder/
 
 features:
   - title: Placeholders

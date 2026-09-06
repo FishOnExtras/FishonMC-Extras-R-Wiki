@@ -4,7 +4,7 @@ title: Placeholders
 
 # Placeholders
 
-FishOnMC-Extras exposes a set of **placeholders** — small dynamic data points you can drop into Custom HUDs, that get replaced with live dynamic data from the mod and server.
+FishOnMC-Extras exposes a set of **placeholders** - small dynamic data points you can drop into Custom HUDs, that get replaced with live dynamic data from the mod and server.
 
 ::: tip What is a placeholder?
 A placeholder is written as a dot-separated path, like `stats_data.data.fish.total`. When the mod processes a message containing this placeholder, it looks up the current value and substitutes it in, no coding required.
@@ -44,10 +44,10 @@ Cypress Lake 12:34
 
 ## Dynamic segments: `<string>`
 
-Some placeholders contain a segment written as `<string>` — this is a **wildcard**. It means you substitute your own value in that position rather than typing it literally.
+Some placeholders contain a segment written as `<string>` - this is a **wildcard**. It means you substitute your own value in that position rather than typing it literally.
 
 ::: warning Don't type `<string>` literally
-`<string>` is a placeholder for *your own input* — like an item name, a fish size, or a rarity tier. You replace it, you don't keep the brackets.
+`<string>` is a placeholder for *your own input* - like an item name, a fish size, or a rarity tier. You replace it, you don't keep the brackets.
 :::
 
 For example, `stats_data.data.item.<string>.count` becomes:
@@ -81,9 +81,9 @@ uppercase.(value: string|component): dynamic
 ```
 
 ::: tip Reading a function signature
-- **`uppercase`** — the placeholder/category name
-- **`(value: string|component)`** — the parameter(s) it accepts, and their allowed types
-- **`: dynamic`** — the type of the value it returns
+- **`uppercase`** - the placeholder/category name
+- **`(value: string|component)`** - the parameter(s) it accepts, and their allowed types
+- **`: dynamic`** - the type of the value it returns
 :::
 
 ::: warning Placeholders as argument
@@ -140,8 +140,8 @@ Every leaf placeholder links to its own page with return type, description, and 
       <td><code>{{ c.cat }}</code></td>
       <td>
         <div v-for="e in c.endpoints" :key="e.raw">
-          <a :href="`/FishonMC-Extras-R-Wiki/placeholder/${c.cat}/${e.display}.html`">
-            <code>{{ e.raw }}</code>
+          <a :href="`/FishonMC-Extras-R-Wiki/${selectedVersion}/placeholder/${c.cat}/${e.display}/`">
+            <code>{{ e.display }}</code>
           </a>
         </div>
       </td>
@@ -150,18 +150,33 @@ Every leaf placeholder links to its own page with return type, description, and 
 </table>
 
 <script setup>
-import list from '../../data/placeholder-list-0.3.10.json'
+import { ref, computed } from 'vue'
+import versionsFile from '../../../data/versions.json'
+
+// Eagerly import every placeholder-list-*.json file in the data folder
+const listModules = import.meta.glob('../../../data/placeholder-list-*.json', { eager: true })
 
 const isFunctionCategory = (endpoints) =>
   endpoints.some((ep) => ep.includes('()'))
 
-const categories = Object.entries(list)
-  .sort(([, a], [, b]) => Number(isFunctionCategory(a)) - Number(isFunctionCategory(b)))
-  .map(([cat, endpoints]) => ({
-    cat,
-    endpoints: endpoints.map((ep) => ({
-      raw: ep,
-      display: ep.replace(/</g, '[').replace(/>/g, ']')
+function getCategoriesForVersion(ver) {
+  const match = Object.entries(listModules).find(([path]) => path.includes(`-${ver}.json`))
+  if (!match) return []
+  const list = match[1].default ?? match[1]
+
+  return Object.entries(list)
+    .sort(([, a], [, b]) => Number(isFunctionCategory(a)) - Number(isFunctionCategory(b)))
+    .map(([cat, endpoints]) => ({
+      cat,
+      endpoints: endpoints.map((ep) => ({
+        raw: ep,
+        display: ep.replace(/</g, '[').replace(/>/g, ']')
+      }))
     }))
-  }))
+}
+
+const versions = versionsFile.versions
+const selectedVersion = ref(versions[0])
+
+const categories = computed(() => getCategoriesForVersion(selectedVersion.value))
 </script>
