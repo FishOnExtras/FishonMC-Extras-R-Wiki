@@ -7,7 +7,7 @@ title: Placeholders
 FishOnMC-Extras exposes a set of **placeholders** — small dynamic data points you can drop into Custom HUDs, that get replaced with live dynamic data from the mod and server.
 
 ::: tip What is a placeholder?
-A placeholder is written as a dot-separated path, like `stats_data.data.fish.total`. When the mod processes a message containing this placeholder, it looks up the current value and substitutes it in — no coding required.
+A placeholder is written as a dot-separated path, like `stats_data.data.fish.total`. When the mod processes a message containing this placeholder, it looks up the current value and substitutes it in, no coding required.
 :::
 
 ## How placeholders are structured
@@ -58,6 +58,20 @@ For example, `stats_data.data.item.<string>.count` becomes:
 
 to get the catch count for shards specifically.
 
+::: tip For `<string[]>` seperate multiple strings just as normal with a dot. Like:
+
+```
+%inventory.pet.<string[]>%
+```
+
+could be used like so:
+
+```
+%inventory.pet.cbase.1.percent_max%
+```
+
+:::
+
 ## Functions
 
 Some placeholders act like functions and take arguments in parentheses, shown with a signature such as:
@@ -82,7 +96,7 @@ Use angle brackets to notate the argument as placeholder. Like:
 
 Examples usage:
 
-::: details Plain String argument
+::: details Plain string argument
 
 ```
 %uppercase.("hello world")%

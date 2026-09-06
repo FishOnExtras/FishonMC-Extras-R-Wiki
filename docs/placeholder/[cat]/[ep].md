@@ -50,8 +50,18 @@
 
 </details>
 
+<hr>
+
+<div class="back-home"><VPButton text="← Back to Placeholders" href="/placeholder/" theme="alt" /></div>
+
 <style module>
 table td:nth-child(3) {
     text-align: center;
+}
+
+.back-home {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
 }
 </style>
