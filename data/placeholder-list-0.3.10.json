@@ -1,0 +1,348 @@
+{
+  "uppercase": [
+    "uppercase.()"
+  ],
+  "stats_data": [
+    "stats_data.data.item.<string>.count",
+    "stats_data.data.item.<string>.dry_streak",
+    "stats_data.data.fish.total",
+    "stats_data.data.fish.size.<string>.count",
+    "stats_data.data.fish.size.<string>.dry_streak",
+    "stats_data.data.fish.variant.<string>.count",
+    "stats_data.data.fish.variant.<string>.dry_streak",
+    "stats_data.data.fish.rarity.<string>.count",
+    "stats_data.data.fish.rarity.<string>.dry_streak",
+    "stats_data.data.pet.total",
+    "stats_data.data.pet.rating.<string>.count",
+    "stats_data.data.pet.rating.<string>.dry_streak",
+    "stats_data.data.pet.dry_streak",
+    "stats_data.data.pet.rarity.<string>.count",
+    "stats_data.data.pet.rarity.<string>.dry_streak"
+  ],
+  "mod": [
+    "mod.()"
+  ],
+  "boss_bar": [
+    "boss_bar.sub_location",
+    "boss_bar.weather",
+    "boss_bar.temperature",
+    "boss_bar.location",
+    "boss_bar.time",
+    "boss_bar.community_goal.current",
+    "boss_bar.community_goal.max"
+  ],
+  "is_blank": [
+    "is_blank.()"
+  ],
+  "replace": [
+    "replace.()"
+  ],
+  "screen": [
+    "screen.last_screen"
+  ],
+  "is_infinite": [
+    "is_infinite.()"
+  ],
+  "quest": [
+    "quest.last_rewarded.item.<index>.amount",
+    "quest.last_rewarded.item.<index>.lore.<index>",
+    "quest.last_rewarded.item.<index>.name",
+    "quest.last_rewarded.item.<index>.rarity",
+    "quest.last_rewarded.item.<index>.<string[]>",
+    "quest.last_rewarded.pet.location_scale_percent",
+    "quest.last_rewarded.pet.location_scale",
+    "quest.last_rewarded.pet.lore.<index>",
+    "quest.last_rewarded.pet.level",
+    "quest.last_rewarded.pet.rating_percent",
+    "quest.last_rewarded.pet.rating",
+    "quest.last_rewarded.pet.climate_scale",
+    "quest.last_rewarded.pet.location_luck_percent",
+    "quest.last_rewarded.pet.climate_luck_percent",
+    "quest.last_rewarded.pet.climate_luck",
+    "quest.last_rewarded.pet.name",
+    "quest.last_rewarded.pet.level_progress",
+    "quest.last_rewarded.pet.climate_scale_percent",
+    "quest.last_rewarded.pet.location_luck",
+    "quest.last_rewarded.pet.rarity",
+    "quest.last_rewarded.pet.<string[]>"
+  ],
+  "hide_line": [
+    "hide_line.()"
+  ],
+  "tab": [
+    "tab.instance",
+    "tab.player_name",
+    "tab.is_in_instance"
+  ],
+  "connection": [
+    "connection.is_on_server",
+    "connection.was_on_server"
+  ],
+  "scoreboard": [
+    "scoreboard.date",
+    "scoreboard.location_max",
+    "scoreboard.wallet",
+    "scoreboard.location_min",
+    "scoreboard.level",
+    "scoreboard.credits",
+    "scoreboard.catches",
+    "scoreboard.catch_rate",
+    "scoreboard.version",
+    "scoreboard.crew_nearby",
+    "scoreboard.crew"
+  ],
+  "catch": [
+    "catch.last_caught.item.<index>.amount",
+    "catch.last_caught.item.<index>.lore.<index>",
+    "catch.last_caught.item.<index>.name",
+    "catch.last_caught.item.<index>.id",
+    "catch.last_caught.item.<index>.last_drystreak",
+    "catch.last_caught.item.<index>.<string[]>",
+    "catch.last_caught.fish.size.icon",
+    "catch.last_caught.fish.size.id",
+    "catch.last_caught.fish.size.last_drystreak",
+    "catch.last_caught.fish.lore.<index>",
+    "catch.last_caught.fish.name",
+    "catch.last_caught.fish.variant.icon",
+    "catch.last_caught.fish.variant.id",
+    "catch.last_caught.fish.variant.last_drystreak",
+    "catch.last_caught.fish.rarity.icon",
+    "catch.last_caught.fish.rarity.id",
+    "catch.last_caught.fish.rarity.last_drystreak",
+    "catch.last_caught.fish.<string[]>",
+    "catch.last_caught.pet.lore.<index>",
+    "catch.last_caught.pet.name",
+    "catch.last_caught.pet.rating.icon",
+    "catch.last_caught.pet.rating.id",
+    "catch.last_caught.pet.rating.last_drystreak",
+    "catch.last_caught.pet.rarity.icon",
+    "catch.last_caught.pet.rarity.id",
+    "catch.last_caught.pet.rarity.last_drystreak",
+    "catch.last_caught.pet.<string[]>"
+  ],
+  "if": [
+    "if.()"
+  ],
+  "clamp": [
+    "clamp.()"
+  ],
+  "is_nan": [
+    "is_nan.()"
+  ],
+  "shorten_number": [
+    "shorten_number.()"
+  ],
+  "ceil": [
+    "ceil.()"
+  ],
+  "loading": [
+    "loading.is_loading_done",
+    "loading.is_error"
+  ],
+  "condition": [
+    "condition.()"
+  ],
+  "contains": [
+    "contains.()"
+  ],
+  "quest_data": [
+    "quest_data.data.<index>.current",
+    "quest_data.data.<index>.goal",
+    "quest_data.data.<index>.max",
+    "quest_data.data.<index>.has_quest"
+  ],
+  "crew_data": [
+    "crew_data.data.<index>.name",
+    "crew_data.data.<index>.id"
+  ],
+  "log": [
+    "log.()"
+  ],
+  "key_bind": [
+    "key_bind.inspect",
+    "key_bind.open_main"
+  ],
+  "remove_format": [
+    "remove_format.()"
+  ],
+  "title": [
+    "title.subtitle",
+    "title.title"
+  ],
+  "inventory": [
+    "inventory.fishing_rod.lore.<index>",
+    "inventory.fishing_rod.line.lore.<index>",
+    "inventory.fishing_rod.line.name",
+    "inventory.fishing_rod.line.<string[]>",
+    "inventory.fishing_rod.name",
+    "inventory.fishing_rod.pole.lore.<index>",
+    "inventory.fishing_rod.pole.name",
+    "inventory.fishing_rod.pole.<string[]>",
+    "inventory.fishing_rod.reel.lore.<index>",
+    "inventory.fishing_rod.reel.name",
+    "inventory.fishing_rod.reel.<string[]>",
+    "inventory.fishing_rod.<string[]>",
+    "inventory.armor.chestplate.lore.<index>",
+    "inventory.armor.chestplate.name",
+    "inventory.armor.chestplate.<string[]>",
+    "inventory.armor.boots.lore.<index>",
+    "inventory.armor.boots.name",
+    "inventory.armor.boots.<string[]>",
+    "inventory.armor.leggings.lore.<index>",
+    "inventory.armor.leggings.name",
+    "inventory.armor.leggings.<string[]>",
+    "inventory.held_item.lore.<index>",
+    "inventory.held_item.name",
+    "inventory.held_item.<string[]>",
+    "inventory.slot.<index>.lore.<index>",
+    "inventory.slot.<index>.name",
+    "inventory.slot.<index>.<string[]>",
+    "inventory.empty_slots",
+    "inventory.pet.location_scale_percent",
+    "inventory.pet.location_scale",
+    "inventory.pet.lore.<index>",
+    "inventory.pet.level",
+    "inventory.pet.rating_percent",
+    "inventory.pet.rating",
+    "inventory.pet.climate_scale",
+    "inventory.pet.location_luck_percent",
+    "inventory.pet.climate_luck_percent",
+    "inventory.pet.climate_luck",
+    "inventory.pet.name",
+    "inventory.pet.level_progress",
+    "inventory.pet.climate_scale_percent",
+    "inventory.pet.location_luck",
+    "inventory.pet.rarity",
+    "inventory.pet.<string[]>"
+  ],
+  "starts_with": [
+    "starts_with.()"
+  ],
+  "substring": [
+    "substring.()"
+  ],
+  "network": [
+    "network.ping"
+  ],
+  "crew": [
+    "crew.offline.<index>.name",
+    "crew.offline.<index>.id",
+    "crew.online.<index>.name",
+    "crew.online.<index>.id",
+    "crew.is_crew_nearby"
+  ],
+  "index_of": [
+    "index_of.()"
+  ],
+  "timer": [
+    "timer.<string>.clean_up_chat_trigger",
+    "timer.<string>.timer",
+    "timer.<string>.offset",
+    "timer.<string>.is_off",
+    "timer.<string>.off_timer",
+    "timer.<string>.notification_to_trigger_end",
+    "timer.<string>.is_on",
+    "timer.<string>.is_period",
+    "timer.<string>.time.hour",
+    "timer.<string>.time.off.hour",
+    "timer.<string>.time.off.second",
+    "timer.<string>.time.off.minute",
+    "timer.<string>.time.second",
+    "timer.<string>.time.minute",
+    "timer.<string>.time.on.hour",
+    "timer.<string>.time.on.second",
+    "timer.<string>.time.on.minute",
+    "timer.<string>.use_timer",
+    "timer.<string>.notification_to_trigger"
+  ],
+  "not": [
+    "not.()"
+  ],
+  "min": [
+    "min.()"
+  ],
+  "and": [
+    "and.()"
+  ],
+  "tracker_data": [
+    "tracker_data.data.<string>.value",
+    "tracker_data.data.<string>.itemstack.lore.<index>",
+    "tracker_data.data.<string>.itemstack.<string[]>"
+  ],
+  "repeat": [
+    "repeat.()"
+  ],
+  "pow": [
+    "pow.()"
+  ],
+  "xor": [
+    "xor.()"
+  ],
+  "floor": [
+    "floor.()"
+  ],
+  "last_index_of": [
+    "last_index_of.()"
+  ],
+  "player": [
+    "player.level",
+    "player.pos.x",
+    "player.pos.y",
+    "player.pos.z",
+    "player.name",
+    "player.fps",
+    "player.level_progress"
+  ],
+  "or": [
+    "or.()"
+  ],
+  "expression": [
+    "expression.()"
+  ],
+  "hit_result": [
+    "hit_result.block.name",
+    "hit_result.entity.name",
+    "hit_result.item_frame.name"
+  ],
+  "lowercase": [
+    "lowercase.()"
+  ],
+  "format_time": [
+    "format_time.()"
+  ],
+  "max": [
+    "max.()"
+  ],
+  "length": [
+    "length.()"
+  ],
+  "profile_data": [
+    "profile_data.data.has_imported_stats",
+    "profile_data.data.tournament_contribution",
+    "profile_data.data.has_imported_crew",
+    "profile_data.data.active_pet_slot",
+    "profile_data.data.is_in_crew_chat"
+  ],
+  "ends_with": [
+    "ends_with.()"
+  ],
+  "format_fancy_boolean": [
+    "format_fancy_boolean.()"
+  ],
+  "abs": [
+    "abs.()"
+  ],
+  "round": [
+    "round.()"
+  ],
+  "chat": [
+    "chat.trigger.<string>"
+  ],
+  "constant_data": [
+    "constant_data.data.fish.size.<string>",
+    "constant_data.data.fish.variant.<string>",
+    "constant_data.data.fish.rarity.<string>",
+    "constant_data.data.pet.rating.<string>",
+    "constant_data.data.pet.rarity.<string>"
+  ]
+}

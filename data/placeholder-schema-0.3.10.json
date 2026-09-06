@@ -1,0 +1,1451 @@
+{
+  "uppercase": {
+    "signature": "uppercase.(value: string|component): dynamic",
+    "returns": "dynamic",
+    "description": "Converts all of the characters in this value to upper case.",
+    "params": [
+      {
+        "name": "value",
+        "type": "string|component"
+      }
+    ]
+  },
+  "stats_data": {
+    "data": {
+      "item": {
+        "<string>": {
+          "count": {
+            "returns": "number",
+            "description": "Returns the amount caught of the specified item value."
+          },
+          "dry_streak": {
+            "returns": "number",
+            "description": "Returns the dry streak of the specified item value."
+          }
+        }
+      },
+      "fish": {
+        "total": {
+          "returns": "number",
+          "description": "Returns the total fish caught."
+        },
+        "size": {
+          "<string>": {
+            "count": {
+              "returns": "number",
+              "description": "Returns the amount caught of the specified fish size."
+            },
+            "dry_streak": {
+              "returns": "number",
+              "description": "Returns the dry streak of the specified fish size."
+            }
+          }
+        },
+        "variant": {
+          "<string>": {
+            "count": {
+              "returns": "number",
+              "description": "Returns the amount caught of the specified variant."
+            },
+            "dry_streak": {
+              "returns": "number",
+              "description": "Returns the dry streak of the specified variant."
+            }
+          }
+        },
+        "rarity": {
+          "<string>": {
+            "count": {
+              "returns": "number",
+              "description": "Returns the amount caught of the specified rarity."
+            },
+            "dry_streak": {
+              "returns": "number",
+              "description": "Returns the dry streak of the specified rarity."
+            }
+          }
+        }
+      },
+      "pet": {
+        "total": {
+          "returns": "number",
+          "description": "Returns the total pets caught."
+        },
+        "rating": {
+          "<string>": {
+            "count": {
+              "returns": "number",
+              "description": "Returns the amount caught of the specified pet rating."
+            },
+            "dry_streak": {
+              "returns": "number",
+              "description": "Returns the dry streak of the specified pet rating."
+            }
+          }
+        },
+        "dry_streak": {
+          "returns": "number",
+          "description": "Returns the dry streak of caught pets."
+        },
+        "rarity": {
+          "<string>": {
+            "count": {
+              "returns": "number",
+              "description": "Returns the amount caught of the specified rarity."
+            },
+            "dry_streak": {
+              "returns": "number",
+              "description": "Returns the dry streak of the specified rarity."
+            }
+          }
+        }
+      }
+    }
+  },
+  "mod": {
+    "signature": "mod.(a: number, b: number): number",
+    "returns": "number",
+    "description": "Returns the modulus of a mod b.",
+    "params": [
+      {
+        "name": "a",
+        "type": "number"
+      },
+      {
+        "name": "b",
+        "type": "number"
+      }
+    ]
+  },
+  "boss_bar": {
+    "sub_location": {
+      "returns": "component",
+      "description": "Returns the current sub location if available."
+    },
+    "weather": {
+      "returns": "component",
+      "description": "Returns the current weather."
+    },
+    "temperature": {
+      "returns": "component",
+      "description": "Returns the current temperature at location."
+    },
+    "location": {
+      "returns": "component",
+      "description": "Returns the current location."
+    },
+    "time": {
+      "returns": "component",
+      "description": "Returns the server time."
+    },
+    "community_goal": {
+      "current": {
+        "returns": "component",
+        "description": "Returns the current amount of fishes caught for the community goal."
+      },
+      "max": {
+        "returns": "component",
+        "description": "Returns the amount needed of fishes caught for the community goal."
+      }
+    }
+  },
+  "is_blank": {
+    "signature": "is_blank.(value: string|component): boolean",
+    "returns": "boolean",
+    "description": "Returns true if the value is empty or contains only white space codepoints, otherwise false.",
+    "params": [
+      {
+        "name": "value",
+        "type": "string|component"
+      }
+    ]
+  },
+  "replace": {
+    "signature": "replace.(value: string|component, target: string, replacement: string): dynamic",
+    "returns": "dynamic",
+    "description": "Replaces each target substring inside the value string with the specified replacement string. The replacement proceeds from the beginning of the string to the end.",
+    "params": [
+      {
+        "name": "value",
+        "type": "string|component"
+      },
+      {
+        "name": "target",
+        "type": "string"
+      },
+      {
+        "name": "replacement",
+        "type": "string"
+      }
+    ]
+  },
+  "screen": {
+    "last_screen": {
+      "returns": "component",
+      "description": "Returns the name of the last screen visited."
+    }
+  },
+  "is_infinite": {
+    "signature": "is_infinite.(value: number): boolean",
+    "returns": "boolean",
+    "description": "Returns true if the specified number is infinitely large in magnitude.",
+    "params": [
+      {
+        "name": "value",
+        "type": "number"
+      }
+    ]
+  },
+  "quest": {
+    "last_rewarded": {
+      "item": {
+        "<index>": {
+          "amount": {
+            "returns": "number",
+            "description": "Returns the amount of the last rewarded item at the specified index."
+          },
+          "lore": {
+            "<index>": {
+              "returns": "component"
+            }
+          },
+          "name": {
+            "returns": "component",
+            "description": "Returns the name of the last rewarded item at the specified index."
+          },
+          "rarity": {
+            "returns": "component",
+            "description": "Returns the rarity of the last rewarded item at the specified index."
+          },
+          "<string[]>": {
+            "returns": "dynamic",
+            "description": "Returns the custom data NBT value of the specified values."
+          }
+        }
+      },
+      "pet": {
+        "location_scale_percent": {
+          "returns": "number",
+          "description": "Returns the location scale percentage of the last rewarded pet."
+        },
+        "location_scale": {
+          "returns": "number",
+          "description": "Returns the location scale value of the last rewarded pet."
+        },
+        "lore": {
+          "<index>": {
+            "returns": "component"
+          }
+        },
+        "level": {
+          "returns": "number",
+          "description": "Returns the level of the last rewarded pet."
+        },
+        "rating_percent": {
+          "returns": "number",
+          "description": "Returns the rating percentage of the last rewarded pet."
+        },
+        "rating": {
+          "returns": "component",
+          "description": "Returns the rating of the last rewarded pet."
+        },
+        "climate_scale": {
+          "returns": "number",
+          "description": "Returns the climate scale value of the last rewarded pet."
+        },
+        "location_luck_percent": {
+          "returns": "number",
+          "description": "Returns the location luck percentage of the last rewarded pet."
+        },
+        "climate_luck_percent": {
+          "returns": "number",
+          "description": "Returns the climate luck percentage of the last rewarded pet."
+        },
+        "climate_luck": {
+          "returns": "number",
+          "description": "Returns the climate luck value of the last rewarded pet."
+        },
+        "name": {
+          "returns": "component",
+          "description": "Returns the name of the last rewarded pet."
+        },
+        "level_progress": {
+          "returns": "number",
+          "description": "Returns the level progress to the next level of the last rewarded pet."
+        },
+        "climate_scale_percent": {
+          "returns": "number",
+          "description": "Returns the climate scale percentage of the last rewarded pet."
+        },
+        "location_luck": {
+          "returns": "number",
+          "description": "Returns the location luck value of the last rewarded pet."
+        },
+        "rarity": {
+          "returns": "component",
+          "description": "Returns the rarity of the last rewarded pet."
+        },
+        "<string[]>": {
+          "returns": "dynamic",
+          "description": "Returns the custom data NBT value of the specified values."
+        }
+      }
+    }
+  },
+  "hide_line": {
+    "signature": "hide_line.(should_hide: boolean): dynamic",
+    "returns": "dynamic",
+    "description": "Hides the full line if and only if the specified should_hide value is true.",
+    "params": [
+      {
+        "name": "should_hide",
+        "type": "boolean"
+      }
+    ]
+  },
+  "tab": {
+    "instance": {
+      "returns": "string",
+      "description": "Returns the instance lobby number."
+    },
+    "player_name": {
+      "returns": "component",
+      "description": "Returns the player name and rank."
+    },
+    "is_in_instance": {
+      "returns": "boolean",
+      "description": "Returns whether the player is in a fishing instance."
+    }
+  },
+  "connection": {
+    "is_on_server": {
+      "returns": "boolean",
+      "description": "Returns whether the player is on the server."
+    },
+    "was_on_server": {
+      "returns": "boolean",
+      "description": "Returns whether the player joined the server at least once."
+    }
+  },
+  "scoreboard": {
+    "date": {
+      "returns": "string",
+      "description": "Returns the server date."
+    },
+    "location_max": {
+      "returns": "number",
+      "description": "Returns the unique fish amount needed of the current location."
+    },
+    "wallet": {
+      "returns": "number",
+      "description": "Returns the players money balance."
+    },
+    "location_min": {
+      "returns": "number",
+      "description": "Returns the unique fish caught of the current location."
+    },
+    "level": {
+      "returns": "component",
+      "description": "Returns the player fishing level (Formatted)."
+    },
+    "credits": {
+      "returns": "number",
+      "description": "Returns the players credit balance."
+    },
+    "catches": {
+      "returns": "number",
+      "description": "Returns the players total catches."
+    },
+    "catch_rate": {
+      "returns": "string",
+      "description": "Returns the players catch rate."
+    },
+    "version": {
+      "returns": "string",
+      "description": "Returns the server version."
+    },
+    "crew_nearby": {
+      "returns": "component",
+      "description": "Returns whether the player is near a crew member."
+    },
+    "crew": {
+      "returns": "string",
+      "description": "Returns the current crew name if available."
+    }
+  },
+  "catch": {
+    "last_caught": {
+      "item": {
+        "<index>": {
+          "amount": {
+            "returns": "number",
+            "description": "Returns the amount of the last caught item at the specified index."
+          },
+          "lore": {
+            "<index>": {
+              "returns": "component"
+            }
+          },
+          "name": {
+            "returns": "component",
+            "description": "Returns the name of the last caught item at the specified index."
+          },
+          "id": {
+            "returns": "string",
+            "description": "Returns the item id of the last caught item at the specified index."
+          },
+          "last_drystreak": {
+            "returns": "number",
+            "description": "Returns the item drystreak of the last caught item at the specified index."
+          },
+          "<string[]>": {
+            "returns": "dynamic",
+            "description": "Returns the custom data NBT value of the specified values."
+          }
+        }
+      },
+      "fish": {
+        "size": {
+          "icon": {
+            "returns": "component",
+            "description": "Returns the fish size of the last caught fish."
+          },
+          "id": {
+            "returns": "string",
+            "description": "Returns the fish size id of the last caught fish."
+          },
+          "last_drystreak": {
+            "returns": "number",
+            "description": "Returns the fish size drystreak of the last caught fish."
+          }
+        },
+        "lore": {
+          "<index>": {
+            "returns": "component"
+          }
+        },
+        "name": {
+          "returns": "component",
+          "description": "Returns the name of the last caught fish."
+        },
+        "variant": {
+          "icon": {
+            "returns": "component",
+            "description": "Returns the variant of the last caught fish."
+          },
+          "id": {
+            "returns": "string",
+            "description": "Returns the variant id of the last caught fish."
+          },
+          "last_drystreak": {
+            "returns": "number",
+            "description": "Returns the variant drystreak of the last caught fish."
+          }
+        },
+        "rarity": {
+          "icon": {
+            "returns": "component",
+            "description": "Returns the rarity of the last caught fish."
+          },
+          "id": {
+            "returns": "string",
+            "description": "Returns the rarity id of the last caught fish."
+          },
+          "last_drystreak": {
+            "returns": "number",
+            "description": "Returns the rarity drystreak of the last caught fish."
+          }
+        },
+        "<string[]>": {
+          "returns": "dynamic",
+          "description": "Returns the custom data NBT value of the specified values."
+        }
+      },
+      "pet": {
+        "lore": {
+          "<index>": {
+            "returns": "component"
+          }
+        },
+        "name": {
+          "returns": "component",
+          "description": "Returns the name of the last caught pet."
+        },
+        "rating": {
+          "icon": {
+            "returns": "component",
+            "description": "Returns the rating of the last caught pet."
+          },
+          "id": {
+            "returns": "string",
+            "description": "Returns the rating id of the last caught pet."
+          },
+          "last_drystreak": {
+            "returns": "number",
+            "description": "Returns the rating drystreak of the last caught pet."
+          }
+        },
+        "rarity": {
+          "icon": {
+            "returns": "component",
+            "description": "Returns the rarity of the last caught pet."
+          },
+          "id": {
+            "returns": "string",
+            "description": "Returns the rarity id of the last caught pet."
+          },
+          "last_drystreak": {
+            "returns": "number",
+            "description": "Returns the rarity drystreak of the last caught pet."
+          }
+        },
+        "<string[]>": {
+          "returns": "dynamic",
+          "description": "Returns the custom data NBT value of the specified values."
+        }
+      }
+    }
+  },
+  "if": {
+    "signature": "if.(condition: boolean, true: dynamic, false?: dynamic): dynamic",
+    "returns": "dynamic",
+    "description": "Returns the true value or false value based on the specified valid condition using the following operators; <, <=, >, >=, ==, !=.",
+    "params": [
+      {
+        "name": "condition",
+        "type": "boolean"
+      },
+      {
+        "name": "true",
+        "type": "dynamic"
+      },
+      {
+        "name": "false",
+        "type": "dynamic",
+        "optional": true
+      }
+    ]
+  },
+  "clamp": {
+    "signature": "clamp.(value: number, min: number, max: number): number",
+    "returns": "number",
+    "description": "Clamps the value to fit between min and max.",
+    "params": [
+      {
+        "name": "value",
+        "type": "number"
+      },
+      {
+        "name": "min",
+        "type": "number"
+      },
+      {
+        "name": "max",
+        "type": "number"
+      }
+    ]
+  },
+  "is_nan": {
+    "signature": "is_nan.(value: number): boolean",
+    "returns": "boolean",
+    "description": "Returns true if the specified number is a Not-a-Number (NaN) value.",
+    "params": [
+      {
+        "name": "value",
+        "type": "number"
+      }
+    ]
+  },
+  "shorten_number": {
+    "signature": "shorten_number.(value: number): string",
+    "returns": "string",
+    "description": "Returns the value to numeric abbreviations like 1K (1.000), 1M (1.000.000), 1B (1.000.000.000), with up to 2 decimals.",
+    "params": [
+      {
+        "name": "value",
+        "type": "number"
+      }
+    ]
+  },
+  "ceil": {
+    "signature": "ceil.(value: number): number",
+    "returns": "number",
+    "description": "Returns the nearest specified value rounded up to a mathematical integer.",
+    "params": [
+      {
+        "name": "value",
+        "type": "number"
+      }
+    ]
+  },
+  "loading": {
+    "is_loading_done": {
+      "returns": "boolean",
+      "description": "Returns whether the mod is loaded."
+    },
+    "is_error": {
+      "returns": "boolean",
+      "description": "Returns whether the mod has an error during loading."
+    }
+  },
+  "condition": {
+    "signature": "condition.(condition: boolean): boolean",
+    "returns": "boolean",
+    "description": "Returns a boolean from the specified valid condition using the following operators; <, <=, >, >=, ==, !=.",
+    "params": [
+      {
+        "name": "condition",
+        "type": "boolean"
+      }
+    ]
+  },
+  "contains": {
+    "signature": "contains.(value: string|component, search: string|component): boolean",
+    "returns": "boolean",
+    "description": "Returns true if and only if this value contains the specified search parameter.",
+    "params": [
+      {
+        "name": "value",
+        "type": "string|component"
+      },
+      {
+        "name": "search",
+        "type": "string|component"
+      }
+    ]
+  },
+  "quest_data": {
+    "data": {
+      "<index>": {
+        "current": {
+          "returns": "number",
+          "description": "Returns the current amount towards the goal of the quest at the specified index slot."
+        },
+        "goal": {
+          "returns": "component",
+          "description": "Returns the goal of the quest at the specified index slot."
+        },
+        "max": {
+          "returns": "number",
+          "description": "Returns the amount needed for the goal of the quest at the specified index slot."
+        },
+        "has_quest": {
+          "returns": "boolean",
+          "description": "Returns whether the start at the specified index has a quest."
+        }
+      }
+    }
+  },
+  "crew_data": {
+    "data": {
+      "<index>": {
+        "name": {
+          "returns": "string",
+          "description": "Returns the name of the player of the specified index."
+        },
+        "id": {
+          "returns": "string",
+          "description": "Returns the UUID of the player of the specified index."
+        }
+      }
+    }
+  },
+  "log": {
+    "signature": "log.(value: number): number",
+    "returns": "number",
+    "description": "Returns the natural logarithm of the specified value.",
+    "params": [
+      {
+        "name": "value",
+        "type": "number"
+      }
+    ]
+  },
+  "key_bind": {
+    "inspect": {
+      "returns": "string",
+      "description": "Returns the key bind of inspecting items if available."
+    },
+    "open_main": {
+      "returns": "string",
+      "description": "Returns the key bind of opening the main FOER screen."
+    }
+  },
+  "remove_format": {
+    "signature": "remove_format.(value: component): string",
+    "returns": "string",
+    "description": "Returns the plain text of the specified value.",
+    "params": [
+      {
+        "name": "value",
+        "type": "component"
+      }
+    ]
+  },
+  "title": {
+    "subtitle": {
+      "returns": "component",
+      "description": "Returns the last subtitle shown."
+    },
+    "title": {
+      "returns": "component",
+      "description": "Returns the last title shown."
+    }
+  },
+  "inventory": {
+    "fishing_rod": {
+      "lore": {
+        "<index>": {
+          "returns": "component"
+        }
+      },
+      "line": {
+        "lore": {
+          "<index>": {
+            "returns": "component"
+          }
+        },
+        "name": {
+          "returns": "component",
+          "description": "Returns the name of the fishing line."
+        },
+        "<string[]>": {
+          "returns": "dynamic",
+          "description": "Returns the custom data NBT value of the specified values."
+        }
+      },
+      "name": {
+        "returns": "component",
+        "description": "Returns the name of the fishing rod."
+      },
+      "pole": {
+        "lore": {
+          "<index>": {
+            "returns": "component"
+          }
+        },
+        "name": {
+          "returns": "component",
+          "description": "Returns the name of the fishing pole."
+        },
+        "<string[]>": {
+          "returns": "dynamic",
+          "description": "Returns the custom data NBT value of the specified values."
+        }
+      },
+      "reel": {
+        "lore": {
+          "<index>": {
+            "returns": "component"
+          }
+        },
+        "name": {
+          "returns": "component",
+          "description": "Returns the name of the fishing reel."
+        },
+        "<string[]>": {
+          "returns": "dynamic",
+          "description": "Returns the custom data NBT value of the specified values."
+        }
+      },
+      "<string[]>": {
+        "returns": "dynamic",
+        "description": "Returns the custom data NBT value of the specified values."
+      }
+    },
+    "armor": {
+      "chestplate": {
+        "lore": {
+          "<index>": {
+            "returns": "component"
+          }
+        },
+        "name": {
+          "returns": "component",
+          "description": "Returns the name of the equipped chestplate."
+        },
+        "<string[]>": {
+          "returns": "dynamic",
+          "description": "Returns the custom data NBT value of the specified values."
+        }
+      },
+      "boots": {
+        "lore": {
+          "<index>": {
+            "returns": "component"
+          }
+        },
+        "name": {
+          "returns": "component",
+          "description": "Returns the name of the equipped leggings."
+        },
+        "<string[]>": {
+          "returns": "dynamic",
+          "description": "Returns the custom data NBT value of the specified values."
+        }
+      },
+      "leggings": {
+        "lore": {
+          "<index>": {
+            "returns": "component"
+          }
+        },
+        "name": {
+          "returns": "component",
+          "description": "Returns the name of the equipped leggings."
+        },
+        "<string[]>": {
+          "returns": "dynamic",
+          "description": "Returns the custom data NBT value of the specified values."
+        }
+      }
+    },
+    "held_item": {
+      "lore": {
+        "<index>": {
+          "returns": "component"
+        }
+      },
+      "name": {
+        "returns": "component",
+        "description": "Returns the name of the current held item."
+      },
+      "<string[]>": {
+        "returns": "dynamic",
+        "description": "Returns the custom data NBT value of the specified values."
+      }
+    },
+    "slot": {
+      "<index>": {
+        "lore": {
+          "<index>": {
+            "returns": "component"
+          }
+        },
+        "name": {
+          "returns": "component",
+          "description": "Returns the name of the item in the specified index slot."
+        },
+        "<string[]>": {
+          "returns": "dynamic",
+          "description": "Returns the custom data NBT value of the specified values."
+        }
+      }
+    },
+    "empty_slots": {
+      "returns": "number",
+      "description": "Returns the number of empty slots in inventory."
+    },
+    "pet": {
+      "location_scale_percent": {
+        "returns": "number",
+        "description": "Returns the location scale percentage of the equipped pet."
+      },
+      "location_scale": {
+        "returns": "number",
+        "description": "Returns the location scale value of the equipped pet."
+      },
+      "lore": {
+        "<index>": {
+          "returns": "component"
+        }
+      },
+      "level": {
+        "returns": "number",
+        "description": "Returns the level of the current equipped pet."
+      },
+      "rating_percent": {
+        "returns": "number",
+        "description": "Returns the rating percentage of the current equipped pet."
+      },
+      "rating": {
+        "returns": "component",
+        "description": "Returns the rating of the current equipped pet."
+      },
+      "climate_scale": {
+        "returns": "number",
+        "description": "Returns the slimate scale value of the equipped pet."
+      },
+      "location_luck_percent": {
+        "returns": "number",
+        "description": "Returns the location luck percentage of the equipped pet."
+      },
+      "climate_luck_percent": {
+        "returns": "number",
+        "description": "Returns the climate luck percentage of the equipped pet."
+      },
+      "climate_luck": {
+        "returns": "number",
+        "description": "Returns the climate luck value of the equipped pet."
+      },
+      "name": {
+        "returns": "component",
+        "description": "Returns the name of the current equipped pet."
+      },
+      "level_progress": {
+        "returns": "number",
+        "description": "Returns the level progress to the next level of the current equipped pet."
+      },
+      "climate_scale_percent": {
+        "returns": "number",
+        "description": "Returns the climate scale percentage of the equipped pet."
+      },
+      "location_luck": {
+        "returns": "number",
+        "description": "Returns the location luck value of the equipped pet."
+      },
+      "rarity": {
+        "returns": "component",
+        "description": "Returns the rarity of the current equipped pet."
+      },
+      "<string[]>": {
+        "returns": "dynamic",
+        "description": "Returns the custom data NBT value of the specified values."
+      }
+    }
+  },
+  "starts_with": {
+    "signature": "starts_with.(value: string|component, prefix: string|component): boolean",
+    "returns": "boolean",
+    "description": "Returns true if this value starts with the specified prefix.",
+    "params": [
+      {
+        "name": "value",
+        "type": "string|component"
+      },
+      {
+        "name": "prefix",
+        "type": "string|component"
+      }
+    ]
+  },
+  "substring": {
+    "signature": "substring.(value: string|component, start: number, end?: number): dynamic",
+    "returns": "dynamic",
+    "description": "Returns a value that is a substring of this value. The substring begins with the character at the specified start index and extends to the end of this string, or extends to the specified end index.",
+    "params": [
+      {
+        "name": "value",
+        "type": "string|component"
+      },
+      {
+        "name": "start",
+        "type": "number"
+      },
+      {
+        "name": "end",
+        "type": "number",
+        "optional": true
+      }
+    ]
+  },
+  "network": {
+    "ping": {
+      "returns": "number",
+      "description": "Returns the client ping to the server."
+    }
+  },
+  "crew": {
+    "offline": {
+      "<index>": {
+        "name": {
+          "returns": "string",
+          "description": "Returns the name of the offline crew member at the specified index."
+        },
+        "id": {
+          "returns": "string",
+          "description": "Returns the UUID of the offline crew member at the specified index."
+        }
+      }
+    },
+    "online": {
+      "<index>": {
+        "name": {
+          "returns": "string",
+          "description": "Returns the name of the online crew member at the specified index."
+        },
+        "id": {
+          "returns": "string",
+          "description": "Returns the UUID of the online crew member at the specified index."
+        }
+      }
+    },
+    "is_crew_nearby": {
+      "returns": "boolean",
+      "description": "Returns whether the player is near a crew member. (Quick version)"
+    }
+  },
+  "index_of": {
+    "signature": "index_of.(value: string|component, search: string|component, from_index?: number): number",
+    "returns": "number",
+    "description": "Returns the index within this value of the first occurrence of the specified search value, or starting at the specified from_index index.",
+    "params": [
+      {
+        "name": "value",
+        "type": "string|component"
+      },
+      {
+        "name": "search",
+        "type": "string|component"
+      },
+      {
+        "name": "from_index",
+        "type": "number",
+        "optional": true
+      }
+    ]
+  },
+  "timer": {
+    "<string>": {
+      "clean_up_chat_trigger": {
+        "returns": "string",
+        "description": "Returns the chat triggers to clean from the specified timer."
+      },
+      "timer": {
+        "returns": "number",
+        "description": "Returns the timer in seconds from the specified timer."
+      },
+      "offset": {
+        "returns": "number",
+        "description": "Returns the offset in seconds from the specified timer."
+      },
+      "is_off": {
+        "returns": "boolean",
+        "description": "Returns whether the period timer is currently in off mode."
+      },
+      "off_timer": {
+        "returns": "number",
+        "description": "Returns the timer when off in seconds from the specified timer."
+      },
+      "notification_to_trigger_end": {
+        "returns": "string",
+        "description": "Returns the the notifications to trigger when off from the specified timer."
+      },
+      "is_on": {
+        "returns": "boolean",
+        "description": "Returns whether the period timer is currently in on mode."
+      },
+      "is_period": {
+        "returns": "boolean",
+        "description": "Returns whether the specified timer is in period mode."
+      },
+      "time": {
+        "hour": {
+          "returns": "number",
+          "description": "Returns the hour hand from the time from the specified timer."
+        },
+        "off": {
+          "hour": {
+            "returns": "number",
+            "description": "Returns the hour hand in the off period from the time from the specified timer."
+          },
+          "second": {
+            "returns": "string",
+            "description": "Returns the second hand in the off period from the time from the specified timer."
+          },
+          "minute": {
+            "returns": "string",
+            "description": "Returns the minute hand in the off period from the time from the specified timer."
+          }
+        },
+        "second": {
+          "returns": "string",
+          "description": "Returns the second hand from the time from the specified timer."
+        },
+        "minute": {
+          "returns": "string",
+          "description": "Returns the minute hand from the time from the specified timer."
+        },
+        "on": {
+          "hour": {
+            "returns": "number",
+            "description": "Returns the hour hand in the on period from the time from the specified timer."
+          },
+          "second": {
+            "returns": "string",
+            "description": "Returns the second hand in the on period from the time from the specified timer."
+          },
+          "minute": {
+            "returns": "string",
+            "description": "Returns the minute hand in the on period from the time from the specified timer."
+          }
+        }
+      },
+      "use_timer": {
+        "returns": "boolean",
+        "description": "Returns whether the specified timer is active."
+      },
+      "notification_to_trigger": {
+        "returns": "string",
+        "description": "Returns the notifications to trigger from the specified timer."
+      }
+    }
+  },
+  "not": {
+    "signature": "not.(...value: boolean): boolean",
+    "returns": "boolean",
+    "description": "Returns the reverse boolean value.",
+    "params": [
+      {
+        "name": "value",
+        "type": "boolean",
+        "variadic": true
+      }
+    ]
+  },
+  "min": {
+    "signature": "min.(...value: number): number",
+    "returns": "number",
+    "description": "Returns the smallest number of all values.",
+    "params": [
+      {
+        "name": "value",
+        "type": "number",
+        "variadic": true
+      }
+    ]
+  },
+  "and": {
+    "signature": "and.(...value: boolean): boolean",
+    "returns": "boolean",
+    "description": "Returns true if all values is true.",
+    "params": [
+      {
+        "name": "value",
+        "type": "boolean",
+        "variadic": true
+      }
+    ]
+  },
+  "tracker_data": {
+    "data": {
+      "<string>": {
+        "value": {
+          "returns": "dynamic",
+          "description": "Return the current value of the specified tracker."
+        },
+        "itemstack": {
+          "lore": {
+            "<index>": {
+              "returns": "component"
+            }
+          },
+          "<string[]>": {
+            "returns": "dynamic",
+            "description": "Returns the custom data NBT value of the specified values."
+          }
+        }
+      }
+    }
+  },
+  "repeat": {
+    "signature": "repeat.(value: string|component, count: number): dynamic",
+    "returns": "dynamic",
+    "description": "Returns a value whose value is the concatenation of this value repeated count times.",
+    "params": [
+      {
+        "name": "value",
+        "type": "string|component"
+      },
+      {
+        "name": "count",
+        "type": "number"
+      }
+    ]
+  },
+  "pow": {
+    "signature": "pow.(a: number, b: number): number",
+    "returns": "number",
+    "description": "Returns the value of a raised to the power of b.",
+    "params": [
+      {
+        "name": "a",
+        "type": "number"
+      },
+      {
+        "name": "b",
+        "type": "number"
+      }
+    ]
+  },
+  "xor": {
+    "signature": "xor.(...value: boolean): boolean",
+    "returns": "boolean",
+    "description": "Returns true if at least one but not all is true. If more than 3 values, returns true if an odd number of values are true.",
+    "params": [
+      {
+        "name": "value",
+        "type": "boolean",
+        "variadic": true
+      }
+    ]
+  },
+  "floor": {
+    "signature": "floor.(value: number): number",
+    "returns": "number",
+    "description": "Returns the nearest specified value rounded down to a mathematical integer.",
+    "params": [
+      {
+        "name": "value",
+        "type": "number"
+      }
+    ]
+  },
+  "last_index_of": {
+    "signature": "last_index_of.(value: string|component, search: string|component, from_index?: number): number",
+    "returns": "number",
+    "description": "Returns the index within this string of the last occurrence of the specified search value, or searching backward starting at the specified from_index index.",
+    "params": [
+      {
+        "name": "value",
+        "type": "string|component"
+      },
+      {
+        "name": "search",
+        "type": "string|component"
+      },
+      {
+        "name": "from_index",
+        "type": "number",
+        "optional": true
+      }
+    ]
+  },
+  "player": {
+    "level": {
+      "returns": "number",
+      "description": "Returns the player fishing level."
+    },
+    "pos": {
+      "x": {
+        "returns": "number",
+        "description": "Returns the player x coordinate"
+      },
+      "y": {
+        "returns": "number",
+        "description": "Returns the player y coordinate"
+      },
+      "z": {
+        "returns": "number",
+        "description": "Returns the player z coordinate"
+      }
+    },
+    "name": {
+      "returns": "string",
+      "description": "Returns the player name."
+    },
+    "fps": {
+      "returns": "number",
+      "description": "Returns the screens FPS."
+    },
+    "level_progress": {
+      "returns": "number",
+      "description": "Returns the player fishing percentage to next fishing level."
+    }
+  },
+  "or": {
+    "signature": "or.(...value: boolean): boolean",
+    "returns": "boolean",
+    "description": "Returns true if at least one value is true.",
+    "params": [
+      {
+        "name": "value",
+        "type": "boolean",
+        "variadic": true
+      }
+    ]
+  },
+  "expression": {
+    "signature": "expression.(expression: number): number",
+    "returns": "number",
+    "description": "Returns a number from the specified valid expression using the following operators; +, -, *, /.",
+    "params": [
+      {
+        "name": "expression",
+        "type": "number"
+      }
+    ]
+  },
+  "hit_result": {
+    "block": {
+      "name": {
+        "returns": "component",
+        "description": "Returns the name of the block at the crosshair."
+      }
+    },
+    "entity": {
+      "name": {
+        "returns": "component",
+        "description": "Returns the name of the entity at the crosshair."
+      }
+    },
+    "item_frame": {
+      "name": {
+        "returns": "component",
+        "description": "Returns the name of the item in the item frame at the crosshair if available."
+      }
+    }
+  },
+  "lowercase": {
+    "signature": "lowercase.(value: string|component): dynamic",
+    "returns": "dynamic",
+    "description": "Converts all of the characters in this value to lower case.",
+    "params": [
+      {
+        "name": "value",
+        "type": "string|component"
+      }
+    ]
+  },
+  "format_time": {
+    "signature": "format_time.(value: number): string",
+    "returns": "string",
+    "description": "Returns the number with a leading zero if and only if the specified value is one digit.",
+    "params": [
+      {
+        "name": "value",
+        "type": "number"
+      }
+    ]
+  },
+  "max": {
+    "signature": "max.(...value: number): number",
+    "returns": "number",
+    "description": "Returns the greatest number of all values.",
+    "params": [
+      {
+        "name": "value",
+        "type": "number",
+        "variadic": true
+      }
+    ]
+  },
+  "length": {
+    "signature": "length.(value: string|component): number",
+    "returns": "number",
+    "description": "Returns the length of the specified value",
+    "params": [
+      {
+        "name": "value",
+        "type": "string|component"
+      }
+    ]
+  },
+  "profile_data": {
+    "data": {
+      "has_imported_stats": {
+        "returns": "boolean",
+        "description": "Returns whether the player stats are imported at least once."
+      },
+      "tournament_contribution": {
+        "returns": "boolean",
+        "description": "Returns whether the player is contributing to the tournament."
+      },
+      "has_imported_crew": {
+        "returns": "boolean",
+        "description": "Returns whether the crew data are imported at least once."
+      },
+      "active_pet_slot": {
+        "returns": "number",
+        "description": "Returns the slot number of the active pet."
+      },
+      "is_in_crew_chat": {
+        "returns": "boolean",
+        "description": "Returns whether the player has crew chat activated."
+      }
+    }
+  },
+  "ends_with": {
+    "signature": "ends_with.(value: string|component, suffix: string|component): boolean",
+    "returns": "boolean",
+    "description": "Returns true if this value ends with the specified suffix.",
+    "params": [
+      {
+        "name": "value",
+        "type": "string|component"
+      },
+      {
+        "name": "suffix",
+        "type": "string|component"
+      }
+    ]
+  },
+  "format_fancy_boolean": {
+    "signature": "format_fancy_boolean.(value: boolean): component",
+    "returns": "component",
+    "description": "Returns a prettier version of a boolean. (It is formatted and thus is not a valid boolean as value)",
+    "params": [
+      {
+        "name": "value",
+        "type": "boolean"
+      }
+    ]
+  },
+  "abs": {
+    "signature": "abs.(value: number): number",
+    "returns": "number",
+    "description": "Returns the absolute value of the specified value.",
+    "params": [
+      {
+        "name": "value",
+        "type": "number"
+      }
+    ]
+  },
+  "round": {
+    "signature": "round.(value: number, decimals?: number): number",
+    "returns": "number",
+    "description": "Returns the nearest specified value rounded to the nearest mathematical integer.",
+    "params": [
+      {
+        "name": "value",
+        "type": "number"
+      },
+      {
+        "name": "decimals",
+        "type": "number",
+        "optional": true
+      }
+    ]
+  },
+  "chat": {
+    "trigger": {
+      "<string>": {
+        "returns": "component"
+      }
+    }
+  },
+  "constant_data": {
+    "data": {
+      "fish": {
+        "size": {
+          "<string>": {
+            "returns": "component"
+          }
+        },
+        "variant": {
+          "<string>": {
+            "returns": "component"
+          }
+        },
+        "rarity": {
+          "<string>": {
+            "returns": "component"
+          }
+        }
+      },
+      "pet": {
+        "rating": {
+          "<string>": {
+            "returns": "component"
+          }
+        },
+        "rarity": {
+          "<string>": {
+            "returns": "component"
+          }
+        }
+      }
+    }
+  }
+}
