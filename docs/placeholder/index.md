@@ -4,7 +4,7 @@ title: Placeholders
 
 # Placeholders
 
-FishOnMC-Extras exposes a set of **placeholders** — small dynamic data points you can drop into Custom HUDs, that get replaced with live data from the mod and server.
+FishOnMC-Extras exposes a set of **placeholders** — small dynamic data points you can drop into Custom HUDs, that get replaced with live dynamic data from the mod and server.
 
 ::: tip What is a placeholder?
 A placeholder is written as a dot-separated path, like `stats_data.data.fish.total`. When the mod processes a message containing this placeholder, it looks up the current value and substitutes it in — no coding required.
@@ -12,19 +12,35 @@ A placeholder is written as a dot-separated path, like `stats_data.data.fish.tot
 
 ## How placeholders are structured
 
-Every placeholder belongs to a **category**, which groups related data together. The category is always the first segment of the path.
+Placeholders must start and end with a percent character.
+Every placeholder belongs to a **category**, which groups related data together. 
+The category is always the first segment of the path.
 
 ```
-<category>.<path>.<to>.<value>
+%<category>.<path>.<to>.<value>%
 ```
 
 For example:
 
 | Full placeholder | Category | Meaning |
 |---|---|---|
-| `stats_data.data.fish.total` | `stats_data` | Total fish caught |
-| `boss_bar.weather` | `boss_bar` | Current weather shown on the boss bar |
-| `uppercase.(value: string)` | `uppercase` | Converts text to upper case |
+| `%stats_data.data.fish.total%` | `stats_data` | Total fish caught |
+| `%boss_bar.weather%` | `boss_bar` | Current weather shown on the boss bar |
+| `%uppercase.("Hello World")%` | `uppercase` | Converts text to upper case |
+
+::: tip Placeholder concatenation
+You can concatenate placeholders to have multiple dynamic data points on one text line. Like:
+
+```
+%boss_bar.location% %boss_bar.time%
+```
+
+becomes:
+
+```
+Cypress Lake 12:34
+```
+:::
 
 ## Dynamic segments: `<string>`
 
@@ -37,7 +53,7 @@ Some placeholders contain a segment written as `<string>` — this is a **wildca
 For example, `stats_data.data.item.<string>.count` becomes:
 
 ```
-stats_data.data.item.armorShard.count
+%stats_data.data.item.armorShard.count%
 ```
 
 to get the catch count for shards specifically.
@@ -50,16 +66,26 @@ Some placeholders act like functions and take arguments in parentheses, shown wi
 uppercase.(value: string|component): dynamic
 ```
 
-::: details Reading a function signature
+::: tip Reading a function signature
 - **`uppercase`** — the placeholder/category name
 - **`(value: string|component)`** — the parameter(s) it accepts, and their allowed types
 - **`: dynamic`** — the type of the value it returns
 :::
 
-Example usage:
+::: warning Placeholders as argument
+Use angle brackets to notate the argument as placeholder. Like:
 
 ```
-uppercase.("hello world")
+%uppercase.(<boss_bar.location>)%
+```
+:::
+
+Examples usage:
+
+::: details Plain String argument
+
+```
+%uppercase.("hello world")%
 ```
 
 which returns:
@@ -67,6 +93,22 @@ which returns:
 ```
 HELLO WORLD
 ```
+
+:::
+
+::: details Placeholder argument
+
+```
+%uppercase.(<boss_bar.location>)%
+```
+
+which returns:
+
+```
+CYPRESS LAKE
+```
+
+:::
 
 ## Browsing the full list
 
@@ -100,11 +142,16 @@ Use the search bar at the top of the page, or browse by category in the sidebar.
 <script setup>
 import list from '../../data/placeholder-list-0.3.10.json'
 
-const categories = Object.entries(list).map(([cat, endpoints]) => ({
-  cat,
-  endpoints: endpoints.map((ep) => ({
-    raw: ep,
-    display: ep.replace(/</g, '[').replace(/>/g, ']')
+const isFunctionCategory = (endpoints) =>
+  endpoints.some((ep) => ep.includes('()'))
+
+const categories = Object.entries(list)
+  .sort(([, a], [, b]) => Number(isFunctionCategory(a)) - Number(isFunctionCategory(b)))
+  .map(([cat, endpoints]) => ({
+    cat,
+    endpoints: endpoints.map((ep) => ({
+      raw: ep,
+      display: ep.replace(/</g, '[').replace(/>/g, ']')
+    }))
   }))
-}))
 </script>

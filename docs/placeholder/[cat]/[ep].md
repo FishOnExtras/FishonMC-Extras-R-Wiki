@@ -1,4 +1,4 @@
-# {{ $params.rawEp.replace(/</g, '&lt;').replace(/>/g, '&gt;') }}
+# `{{ $params.rawEp }}`
 
 <div v-if="$params.description">
 {{ $params.description }}

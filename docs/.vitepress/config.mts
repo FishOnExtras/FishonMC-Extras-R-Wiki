@@ -18,7 +18,10 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/FishonMC-Extras-R-Wiki/logo.png' }],
+    ['link', { rel: 'icon', href: '/FishonMC-Extras-R-Wiki/logo.ico' }]
   ],
+
+  cleanUrls: true,
 
   themeConfig: {
     nav: [

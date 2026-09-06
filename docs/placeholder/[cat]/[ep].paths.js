@@ -23,7 +23,14 @@ function resolveSchema(root, ep) {
 
 export default {
   paths() {
-    return Object.entries(list).flatMap(([cat, endpoints]) =>
+    const isFunctionCategory = (endpoints) =>
+      endpoints.some((ep) => ep.includes('()'))
+
+    const sortedEntries = Object.entries(list).sort(([, a], [, b]) => {
+      return Number(isFunctionCategory(a)) - Number(isFunctionCategory(b))
+    })
+
+    return sortedEntries.flatMap(([cat, endpoints]) =>
       endpoints.map((ep) => {
         const node = resolveSchema(schema, ep) ?? {}
         return {
