@@ -1,3 +1,7 @@
+---
+title: {{ $params.rawEp }}
+---
+
 # `{{ $params.rawEp }}`
 
 <div v-if="$params.description">

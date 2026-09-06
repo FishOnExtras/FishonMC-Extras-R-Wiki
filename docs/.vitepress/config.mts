@@ -44,5 +44,11 @@ export default defineConfig({
     footer: {
       message: '<b>FishOnMC-Extras-R-Wiki</b> is not affiliated, associated, authorized, endorsed by, or in any way officially connected with <a href="https://fishonmc.net/">FishOnMC</a><br /><i>Made by DannyPX</i>'
     }
+  },
+
+  transformPageData(pageData) {
+    if (pageData.params?.rawEp) {
+      pageData.title = pageData.params.cat
+    }
   }
 });
