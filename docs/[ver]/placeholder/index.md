@@ -2,7 +2,7 @@
 title: Placeholders
 ---
 
-# Placeholders
+# Placeholders <Badge type="info" :text=$params.ver />
 
 FishOnMC-Extras exposes a set of **placeholders** - small dynamic data points you can drop into Custom HUDs, that get replaced with live dynamic data from the mod and server.
 
@@ -128,6 +128,10 @@ CYPRESS LAKE
 
 Every leaf placeholder links to its own page with return type, description, and parameters.
 
+::: tip Looking for a specific placeholder?
+Use the search bar at the top of the page, or browse by category in the sidebar. Each entry shows its full path, return type, description, and parameters (if any).
+:::
+
 <table>
   <thead>
     <tr>
@@ -153,7 +157,6 @@ Every leaf placeholder links to its own page with return type, description, and 
 import { ref, computed } from 'vue'
 import versionsFile from '../../../data/versions.json'
 
-// Eagerly import every placeholder-list-*.json file in the data folder
 const listModules = import.meta.glob('../../../data/placeholder-list-*.json', { eager: true })
 
 const isFunctionCategory = (endpoints) =>

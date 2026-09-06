@@ -2,7 +2,7 @@
 title: {{ $params.rawEp }}
 ---
 
-# `{{ $params.rawEp }}`
+# `{{ $params.rawEp }}` <Badge type="info" :text=$params.ver />
 
 <div v-if="$params.description">
 {{ $params.description }}

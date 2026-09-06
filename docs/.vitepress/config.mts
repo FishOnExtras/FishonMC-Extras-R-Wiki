@@ -26,7 +26,7 @@ function buildSidebarForVersion(ver: string) {
 
   return sortedEntries.map(([cat, endpoints]) => ({
     text: cat,
-    collapsed: false,
+    collapsed: true,
     items: (endpoints as string[]).map((ep) => {
       const display = ep.replace(/</g, '[').replace(/>/g, ']')
       return {

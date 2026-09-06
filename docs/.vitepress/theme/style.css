@@ -88,3 +88,15 @@
   --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
   --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
 }
+
+/*
+ * Component: NavSearch
+ * -------------------------------------------------------------------------- */
+
+.hide-nav .VPNav {
+  display: none;
+}
+
+.hide-nav .VPContent {
+  padding-top: 0 !important;
+}
