@@ -17,8 +17,8 @@ export default defineConfig({
   description: "Wiki for the FishOnMC Extras R (FOER) mod",
 
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: '/FishonMC-Extras-R-Wiki/logo.png' }],
-    ['link', { rel: 'icon', href: '/FishonMC-Extras-R-Wiki/logo.ico' }]
+    ['link', { rel: 'icon', type: 'image/png', href: '/FishonMC-Extras-R-Wiki/icon.png' }],
+    ['link', { rel: 'icon', href: '/FishonMC-Extras-R-Wiki/icon.ico' }]
   ],
 
   cleanUrls: true,
