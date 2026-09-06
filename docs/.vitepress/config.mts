@@ -24,6 +24,16 @@ export default defineConfig({
   cleanUrls: true,
 
   themeConfig: {
+    logo: {
+      src: '/icon.png',
+      width: 24,
+      height: 24
+    },
+
+    search: {
+      provider: 'local'
+    },
+
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Placeholder', link: '/placeholder/'}
@@ -33,6 +43,10 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/orgs/FishOnExtras/repositories' }
     ],
 
-    sidebar: generateSidebar(vitePressSidebarOptions)
+    sidebar: generateSidebar(vitePressSidebarOptions),
+
+    footer: {
+      message: '<b>FishOnMC-Extras-R-Wiki</b> is not affiliated, associated, authorized, endorsed by, or in any way officially connected with <a href="https://fishonmc.net/">FishOnMC</a><br /><i>Made by DannyPX</i>'
+    }
   }
 });
