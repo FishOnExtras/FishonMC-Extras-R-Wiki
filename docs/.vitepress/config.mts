@@ -30,10 +30,6 @@ export default defineConfig({
       height: 24
     },
 
-    search: {
-      provider: 'local'
-    },
-
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Placeholder', link: '/placeholder/'}

@@ -149,10 +149,6 @@ Every leaf placeholder links to its own page with return type, description, and 
   </tbody>
 </table>
 
-::: info Looking for a specific placeholder?
-Use the search bar at the top of the page, or browse by category in the sidebar. Each entry shows its full path, return type, description, and parameters (if any).
-:::
-
 <script setup>
 import list from '../../data/placeholder-list-0.3.10.json'
 
