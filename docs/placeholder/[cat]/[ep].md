@@ -59,9 +59,8 @@ table td:nth-child(3) {
     text-align: center;
 }
 
-.back-home {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 2rem;
+:global(.back-home) {
+  display: flex !important;
+  justify-content: flex-end !important;
 }
 </style>
