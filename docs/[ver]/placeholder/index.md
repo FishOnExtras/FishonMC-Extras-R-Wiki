@@ -153,19 +153,33 @@ Use the search bar at the top of the page, or browse by category in the sidebar.
   </tbody>
 </table>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from 'vue'
 import versionsFile from '../../../data/versions.json'
 
-const listModules = import.meta.glob('../../../data/placeholder-list-*.json', { eager: true })
+interface Category {
+  cat: string
+  endpoints: {
+    raw: string
+    display: string
+  }[]
+}
 
-const isFunctionCategory = (endpoints) =>
-  endpoints.some((ep) => ep.includes('()'))
+type PlaceholderList = Record<string, string[]>
 
-function getCategoriesForVersion(ver) {
+const listModules = import.meta.glob<{ default: PlaceholderList }>(
+  '../../../data/placeholder-list-*.json',
+  { eager: true }
+)
+
+function isFunctionCategory(endpoints: string[]): boolean {
+  return endpoints.some((ep) => ep.includes('()'))
+}
+
+function getCategoriesForVersion(ver: string): Category[] {
   const match = Object.entries(listModules).find(([path]) => path.includes(`-${ver}.json`))
   if (!match) return []
-  const list = match[1].default ?? match[1]
+  const list = match[1].default
 
   return Object.entries(list)
     .sort(([, a], [, b]) => Number(isFunctionCategory(a)) - Number(isFunctionCategory(b)))
@@ -178,8 +192,8 @@ function getCategoriesForVersion(ver) {
     }))
 }
 
-const versions = versionsFile.versions
-const selectedVersion = ref(versions[0])
+const versions: string[] = versionsFile.versions
+const selectedVersion = ref<string>(versions[0])
 
-const categories = computed(() => getCategoriesForVersion(selectedVersion.value))
+const categories = computed<Category[]>(() => getCategoriesForVersion(selectedVersion.value))
 </script>

@@ -1,41 +1,75 @@
-<script setup>
+<script setup lang="ts">
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import fuzzysort from 'fuzzysort'
 
-const listModules = import.meta.glob('../../../../data/placeholder-list-*.json', { eager: true })
-const schemaModules = import.meta.glob('../../../../data/placeholder-schema-*.json', { eager: true })
+interface SchemaParam {
+  name: string
+  type: string
+}
 
-function extractVersion(path) {
+interface SchemaNode {
+  signature?: string
+  returns?: string
+  description?: string
+  params?: SchemaParam[]
+}
+
+type SchemaTree = {
+  [key: string]: SchemaTree | SchemaNode
+}
+
+type PlaceholderList = Record<string, string[]>
+
+interface Entry {
+  cat: string
+  ep: string
+  display: string
+  description: string
+  link: string
+  searchText: string
+}
+
+const listModules = import.meta.glob<{ default: PlaceholderList }>(
+  '../../../../data/placeholder-list-*.json',
+  { eager: true }
+)
+const schemaModules = import.meta.glob<{ default: SchemaTree }>(
+  '../../../../data/placeholder-schema-*.json',
+  { eager: true }
+)
+
+function extractVersion(path: string): string | null {
   const match = path.match(/-(\d+\.\d+\.\d+)\.json$/)
   return match ? match[1] : null
 }
 
-function resolveSchema(root, ep) {
+function resolveSchema(root: SchemaTree, ep: string): SchemaNode | undefined {
   const segments = ep.split('.').filter((seg) => seg !== '()')
-  let node = root
+  let node: SchemaTree | SchemaNode = root
   for (const seg of segments) {
     if (node == null) return undefined
-    node = node[seg]
+    node = (node as SchemaTree)[seg] as SchemaTree | SchemaNode
   }
-  return node
+  return node as SchemaNode | undefined
 }
 
-const versions = Object.keys(listModules)
+const versions: string[] = Object.keys(listModules)
   .map(extractVersion)
-  .filter(Boolean)
+  .filter((v): v is string => Boolean(v))
   .sort()
   .reverse()
 
-const entriesByVersion = {}
+const entriesByVersion: Record<string, Entry[]> = {}
+
 for (const [path, mod] of Object.entries(listModules)) {
   const ver = extractVersion(path)
   if (!ver) continue
 
-  const list = mod.default ?? mod
+  const list = mod.default
   const schemaPath = Object.keys(schemaModules).find((p) => p.includes(`-${ver}.json`))
-  const schema = schemaPath ? (schemaModules[schemaPath].default ?? schemaModules[schemaPath]) : {}
+  const schema: SchemaTree = schemaPath ? schemaModules[schemaPath].default : {}
 
-  const entries = []
+  const entries: Entry[] = []
   for (const [cat, endpoints] of Object.entries(list)) {
     for (const ep of endpoints) {
       const display = ep.replace(/</g, '[').replace(/>/g, ']')
@@ -45,7 +79,7 @@ for (const [path, mod] of Object.entries(listModules)) {
         ep,
         display,
         description: node.description ?? '',
-        link: `/FishonMC-Extras-R-Wiki/${ver}/placeholder/${cat}/${display}/`,
+        link: `/${ver}/placeholder/${cat}/${display}/`,
         searchText: `${cat} ${display} ${node.description ?? ''}`
       })
     }
@@ -53,13 +87,13 @@ for (const [path, mod] of Object.entries(listModules)) {
   entriesByVersion[ver] = entries
 }
 
-const selectedVersion = ref(versions[0])
+const selectedVersion = ref<string>(versions[0])
 const query = ref('')
 const isSearchOpen = ref(false)
 const isVersionOpen = ref(false)
-const containerRef = ref(null)
+const containerRef = ref<HTMLElement | null>(null)
 
-const results = computed(() => {
+const results = computed<Entry[]>(() => {
   const q = query.value.trim()
   if (!q) return []
 
@@ -74,13 +108,13 @@ const results = computed(() => {
     .map((r) => r.obj)
 })
 
-function selectVersion(v) {
+function selectVersion(v: string) {
   selectedVersion.value = v
   isVersionOpen.value = false
 }
 
-function handleClickOutside(e) {
-  if (containerRef.value && !containerRef.value.contains(e.target)) {
+function handleClickOutside(e: MouseEvent) {
+  if (containerRef.value && !containerRef.value.contains(e.target as Node)) {
     isSearchOpen.value = false
     isVersionOpen.value = false
   }
