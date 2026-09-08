@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { useRoute } from 'vitepress'
+import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
 import fuzzysort from 'fuzzysort'
 
 interface SchemaParam {
@@ -28,6 +29,9 @@ interface Entry {
   link: string
   searchText: string
 }
+
+const route = useRoute()
+var currentVersion = route.data.params.ver;
 
 const listModules = import.meta.glob<{ default: PlaceholderList }>(
   '../../../../data/placeholder-list-*.json',
@@ -79,7 +83,7 @@ for (const [path, mod] of Object.entries(listModules)) {
         ep,
         display,
         description: node.description ?? '',
-        link: `/${ver}/placeholder/${cat}/${display}/`,
+        link: `/FishonMC-Extras-R-Wiki/${ver}/placeholder/${cat}/${display}/`,
         searchText: `${cat} ${display} ${node.description ?? ''}`
       })
     }
@@ -121,7 +125,17 @@ function handleClickOutside(e: MouseEvent) {
 }
 
 onMounted(() => document.addEventListener('click', handleClickOutside))
+
 onBeforeUnmount(() => document.removeEventListener('click', handleClickOutside))
+
+watch(
+  () => route.path,
+  (newPath, oldPath) => {
+    console.log(route.data.params.ver)
+    currentVersion = route.data.params.ver
+    selectVersion(currentVersion)
+  }
+)
 </script>
 
 <template>

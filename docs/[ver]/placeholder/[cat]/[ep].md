@@ -32,6 +32,7 @@ title: {{ $params.rawEp }}
       <th>Name</th>
       <th>Type</th>
       <th>Optional</th>
+      <th>Variadic</th>
     </tr>
   </thead>
   <tbody>
@@ -39,6 +40,7 @@ title: {{ $params.rawEp }}
       <td><code>{{ p.name }}</code></td>
       <td><code>{{ p.type }}</code></td>
       <td  >{{ p.optional ? '✅' : '' }}</td>
+      <td  >{{ p.variadic ? '✅' : '' }}</td>
     </tr>
   </tbody>
 </table>
@@ -56,10 +58,10 @@ title: {{ $params.rawEp }}
 
 <hr>
 
-<div class="back-home"><VPButton text="← Back to Placeholders" href="/0.3.10/placeholder/" theme="alt" /></div>
+<div class="back-home"><VPButton text="← Back to Placeholders" :href="`/${ selectedVersion }/placeholder/`" theme="alt" /></div>
 
 <style module>
-table td:nth-child(3) {
+table td:nth-child(n+3):nth-child(-n+4) {
     text-align: center;
 }
 
@@ -68,3 +70,10 @@ table td:nth-child(3) {
   justify-content: flex-end !important;
 }
 </style>
+
+<script setup lang="ts">
+import { useRoute } from 'vitepress'
+
+const route = useRoute()
+const selectedVersion = route.data.params.ver;
+</script>

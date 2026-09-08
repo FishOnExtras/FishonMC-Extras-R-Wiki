@@ -154,8 +154,11 @@ Use the search bar at the top of the page, or browse by category in the sidebar.
 </table>
 
 <script setup lang="ts">
+import { useRoute } from 'vitepress'
 import { ref, computed } from 'vue'
 import versionsFile from '../../../data/versions.json'
+
+const route = useRoute()
 
 interface Category {
   cat: string
@@ -192,8 +195,7 @@ function getCategoriesForVersion(ver: string): Category[] {
     }))
 }
 
-const versions: string[] = versionsFile.versions
-const selectedVersion = ref<string>(versions[0])
+const selectedVersion = route.data.params.ver;
 
-const categories = computed<Category[]>(() => getCategoriesForVersion(selectedVersion.value))
+const categories = computed<Category[]>(() => getCategoriesForVersion(selectedVersion))
 </script>
