@@ -95,5 +95,10 @@ export default defineConfig({
     if (pageData.params?.rawEp) {
       pageData.title = pageData.params.cat
     }
+
+    if (pageData.frontmatter.layout === 'home') {
+    const latest = versionsFile.versions[0]
+    pageData.frontmatter.hero.actions[0].link = `/${latest}/placeholder/`
+  }
   }
 });
