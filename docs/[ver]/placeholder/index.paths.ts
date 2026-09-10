@@ -16,7 +16,10 @@ const versionsFile: VersionsFile = JSON.parse(
 export default {
   paths() {
     return versionsFile.versions.map((ver) => ({
-      params: { ver }
+      params: { 
+        ver,
+        versions: versionsFile.versions ?? null
+      }
     }))
   }
 }

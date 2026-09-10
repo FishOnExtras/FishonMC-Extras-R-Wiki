@@ -72,7 +72,8 @@ export default {
               signature: node.signature ?? null,
               returns: node.returns ?? null,
               description: node.description ?? null,
-              paramsList: node.params ?? null
+              paramsList: node.params ?? null,
+              versions: versionsFile.versions ?? null
             }
           }
         })
