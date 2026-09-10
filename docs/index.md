@@ -7,13 +7,22 @@ hero:
   tagline: 
   actions:
     - theme: brand
-      text: Placeholder Docs
+      text: Placeholders
       link: /0.3.11/placeholder/
+      actions:
+    - theme: alt
+      text: Search
+      link: /search/
 
 features:
-  - title: Placeholders
+  - icon: 🔗
+    title: Placeholders
     details: Documentation about the powerful Placeholder language in FOER
-  - title: Modding API (Not available)
+  - icon: 🖊️
+    title: Creators
+    details: Documentation about the powerful Custom Creator Elements, Triggers and Listeners in FOER
+  - icon: ➕
+    title: Modding API (Not available)
     details: Documentation about the modding API that is provided by FOER
 ---
 
