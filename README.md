@@ -66,3 +66,5 @@ yarn docs:preview
 ## License
 
 [GPLv3](https://github.com/FishOnExtras/FishonMC-Extras-R-Wiki/blob/main/LICENSE)
+
+> FishOnMC-Extras-R-Wiki is not affiliated, associated, authorized, endorsed by, or in any way officially connected with [FishOnMC](https://fishonmc.net/)
