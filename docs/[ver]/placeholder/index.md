@@ -2,7 +2,7 @@
 title: Placeholders
 ---
 
-# Placeholders <Badge type="info" :text=$params.ver /> <Badge v-if="$params.versions[0] == $params.ver" type="tip" text="latest" />
+# Placeholders <Badge type="info" :text=$params.verDisplay /> <Badge v-if="$params.versions[0].version == $params.ver" type="tip" text="latest" />
 
 FishOnMC-Extras exposes a set of **placeholders** - small dynamic data points you can drop into Custom HUDs, that get replaced with live dynamic data from the mod and server.
 

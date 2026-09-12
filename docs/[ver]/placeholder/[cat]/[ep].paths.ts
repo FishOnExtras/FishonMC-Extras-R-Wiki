@@ -2,8 +2,13 @@ import { readFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, resolve } from 'path'
 
+interface VersionEntry {
+  version: string
+  display: string
+}
+
 interface VersionsFile {
-  versions: string[]
+  versions: VersionEntry[]
 }
 
 type PlaceholderList = Record<string, string[]>
@@ -48,12 +53,12 @@ function isFunctionCategory(endpoints: string[]): boolean {
 
 export default {
   paths() {
-    return versionsFile.versions.flatMap((ver) => {
+    return versionsFile.versions.flatMap(({ version, display }) => {
       const list: PlaceholderList = JSON.parse(
-        readFileSync(resolve(dataDir, `placeholder-list-${ver}.json`), 'utf-8')
+        readFileSync(resolve(dataDir, `placeholder-list-${version}.json`), 'utf-8')
       )
       const schema: SchemaTree = JSON.parse(
-        readFileSync(resolve(dataDir, `placeholder-schema-${ver}.json`), 'utf-8')
+        readFileSync(resolve(dataDir, `placeholder-schema-${version}.json`), 'utf-8')
       )
 
       const sortedEntries = Object.entries(list).sort(([, a], [, b]) => {
@@ -65,7 +70,8 @@ export default {
           const node = resolveSchema(schema, ep) ?? {}
           return {
             params: {
-              ver,
+              ver: version,
+              verDisplay: display,
               cat,
               ep: ep.replace(/</g, '[').replace(/>/g, ']'),
               rawEp: ep,

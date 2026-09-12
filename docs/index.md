@@ -7,9 +7,8 @@ hero:
   tagline: 
   actions:
     - theme: brand
-      text: Placeholders
-      link: /0.3.11/placeholder/
-      actions:
+      text: Placeholder
+      link: /placeholder/
     - theme: alt
       text: Search
       link: /search/
