@@ -2,9 +2,15 @@ import { readFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, resolve } from 'path'
 
-interface VersionsFile {
-  versions: string[]
+interface VersionEntry {
+  version: string
+  display: string
 }
+
+interface VersionsFile {
+  versions: VersionEntry[]
+}
+
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const dataDir = resolve(__dirname, '../../../data')
@@ -15,10 +21,11 @@ const versionsFile: VersionsFile = JSON.parse(
 
 export default {
   paths() {
-    return versionsFile.versions.map((ver) => ({
+    return versionsFile.versions.map(({ version, display }) => ({
       params: { 
-        ver,
-        versions: versionsFile.versions ?? null
+        ver: version,
+        versions: versionsFile.versions ?? null,
+        verDisplay: display,
       }
     }))
   }
