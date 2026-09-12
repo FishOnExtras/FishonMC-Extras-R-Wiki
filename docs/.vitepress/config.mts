@@ -3,21 +3,30 @@ import { fileURLToPath } from 'url'
 import { dirname, resolve } from 'path'
 import { defineConfig } from 'vitepress'
 
+interface VersionEntry {
+  version: string
+  display: string
+}
+
+interface VersionsFile {
+  versions: VersionEntry[]
+}
+
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const dataDir = resolve(__dirname, '../../data')
 
-const versionsFile = JSON.parse(
+const versionsFile: VersionsFile = JSON.parse(
   readFileSync(resolve(dataDir, 'versions.json'), 'utf-8')
 )
-const versions: string[] = versionsFile.versions
+const versions = versionsFile.versions
 
 function isFunctionCategory(endpoints: string[]) {
   return endpoints.some((ep) => ep.includes('()'))
 }
 
-function buildSidebarForVersion(ver: string) {
+function buildSidebarForVersion({ version }: VersionEntry) {
   const list = JSON.parse(
-    readFileSync(resolve(dataDir, `placeholder-list-${ver}.json`), 'utf-8')
+    readFileSync(resolve(dataDir, `placeholder-list-${version}.json`), 'utf-8')
   )
 
   const sortedEntries = Object.entries(list).sort(([, a], [, b]) => {
@@ -31,7 +40,7 @@ function buildSidebarForVersion(ver: string) {
       const display = ep.replace(/</g, '[').replace(/>/g, ']')
       return {
         text: display,
-        link: `/${ver}/placeholder/${cat}/${display}/`
+        link: `/${version}/placeholder/${cat}/${display}/`
       }
     })
   }))
@@ -39,8 +48,8 @@ function buildSidebarForVersion(ver: string) {
 
 function buildAllSidebars() {
   const sidebar: Record<string, any> = {}
-  for (const ver of versions) {
-    sidebar[`/${ver}/placeholder/`] = buildSidebarForVersion(ver)
+  for (const entry of versions) {
+    sidebar[`/${entry.version}/placeholder/`] = buildSidebarForVersion(entry)
   }
   return sidebar
 }
@@ -71,9 +80,9 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       {
         text: 'Placeholder',
-        items: versions.map((ver) => ({
-          text: ver,
-          link: `/${ver}/placeholder/`
+        items: versions.map(({ version, display }) => ({
+          text: display,
+          link: `/${version}/placeholder/`
         }))
       }
     ],
@@ -94,6 +103,11 @@ export default defineConfig({
   transformPageData(pageData) {
     if (pageData.params?.rawEp) {
       pageData.title = pageData.params.cat
+    }
+
+    if (pageData.frontmatter.layout === 'home') {
+      const latest = versionsFile.versions[0].version
+      pageData.frontmatter.hero.actions[0].link = `/${latest}/placeholder/`
     }
   }
 });

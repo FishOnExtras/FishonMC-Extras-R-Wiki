@@ -2,6 +2,12 @@
 import { useRoute } from 'vitepress'
 import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
 import fuzzysort from 'fuzzysort'
+import versionsFile from '../../../../data/versions.json'
+
+interface VersionEntry {
+  version: string
+  display: string
+}
 
 interface SchemaParam {
   name: string
@@ -30,6 +36,8 @@ interface Entry {
   searchText: string
 }
 
+const versions: VersionEntry[] = versionsFile.versions
+
 const route = useRoute()
 var currentVersion = route.data.params.ver;
 
@@ -56,12 +64,6 @@ function resolveSchema(root: SchemaTree, ep: string): SchemaNode | undefined {
   }
   return node as SchemaNode | undefined
 }
-
-const versions: string[] = Object.keys(listModules)
-  .map(extractVersion)
-  .filter((v): v is string => Boolean(v))
-  .sort()
-  .reverse()
 
 const entriesByVersion: Record<string, Entry[]> = {}
 
@@ -91,7 +93,10 @@ for (const [path, mod] of Object.entries(listModules)) {
   entriesByVersion[ver] = entries
 }
 
-const selectedVersion = ref<string>(versions[0])
+const selectedVersion = ref<string>(versions[0].version)
+const selectedDisplay = computed(
+  () => versions.find((v) => v.version === selectedVersion.value)?.display ?? selectedVersion.value
+)
 const query = ref('')
 const isSearchOpen = ref(false)
 const isVersionOpen = ref(false)
@@ -131,7 +136,6 @@ onBeforeUnmount(() => document.removeEventListener('click', handleClickOutside))
 watch(
   () => route.path,
   (newPath, oldPath) => {
-    console.log(route.data.params.ver)
     currentVersion = route.data.params.ver
     selectVersion(currentVersion)
   }
@@ -147,7 +151,7 @@ watch(
         :aria-expanded="isVersionOpen"
         @click="isVersionOpen = !isVersionOpen"
       >
-        <span>{{ selectedVersion }}</span>
+        <span>{{ selectedDisplay }}</span>
         <svg class="chevron" :class="{ open: isVersionOpen }" width="12" height="12" viewBox="0 0 24 24">
           <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/>
         </svg>
@@ -157,12 +161,12 @@ watch(
         <div v-if="isVersionOpen" class="version-menu">
           <button
             v-for="v in versions"
-            :key="v"
+            :key="v.version"
             class="version-option"
-            :class="{ active: v === selectedVersion }"
-            @click="selectVersion(v)"
+            :class="{ active: v.version === selectedVersion }"
+            @click="selectVersion(v.version)"
           >
-            {{ v }}
+            {{ v.display }}
           </button>
         </div>
       </Transition>
