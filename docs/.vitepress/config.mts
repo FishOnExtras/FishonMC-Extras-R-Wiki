@@ -84,7 +84,8 @@ export default defineConfig({
           text: display,
           link: `/${version}/placeholder/`
         }))
-      }
+      },
+      { text: 'Search', link: '/search/' }
     ],
 
     socialLinks: [
