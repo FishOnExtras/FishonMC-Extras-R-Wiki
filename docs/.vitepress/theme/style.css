@@ -100,3 +100,44 @@
 .hide-nav .VPContent {
   padding-top: 0 !important;
 }
+
+/*
+ * Component: Tooltip
+ * -------------------------------------------------------------------------- */
+ 
+ .tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  border-bottom: 1px dashed var(--vp-c-text-3);
+  color: var(--vp-c-text-2);
+  font-size: 0.85em;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 240px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  background: var(--vp-c-bg-elv);
+  border: 1px solid var(--vp-c-divider);
+  box-shadow: var(--vp-shadow-3);
+  color: var(--vp-c-text-1);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  text-align: center;
+  z-index: 50;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
