@@ -19,7 +19,14 @@ title: {{ $params.rawEp }}
 
 ## Returns
 
-`{{ $params.returns }}`
+<span class="returns-row">
+  <code>{{ $params.returns }}</code>
+  <span v-if="$params.allow_empty" class="tooltip">
+    <code>can be empty</code>
+    <span class="tooltip-text">The return value may be empty, but the placeholder will still display rather than being hidden.</span>
+  </span>
+</span>
+
 </div>
 
 <div v-if="$params.paramsList && $params.paramsList.length">
@@ -68,6 +75,12 @@ table td:nth-child(n+3):nth-child(-n+4) {
 :global(.back-home) {
   display: flex !important;
   justify-content: flex-end !important;
+}
+
+:global(.returns-row) {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 </style>
 

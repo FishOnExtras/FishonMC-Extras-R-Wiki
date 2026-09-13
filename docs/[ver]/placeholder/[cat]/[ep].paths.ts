@@ -22,6 +22,7 @@ interface SchemaNode {
   signature?: string
   returns?: string
   description?: string
+  allow_empty?: boolean
   params?: SchemaParam[]
   [key: string]: unknown
 }
@@ -77,6 +78,7 @@ export default {
               rawEp: ep,
               signature: node.signature ?? null,
               returns: node.returns ?? null,
+              allow_empty: node.allow_empty ?? null,
               description: node.description ?? null,
               paramsList: node.params ?? null,
               versions: versionsFile.versions ?? null
