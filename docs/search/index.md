@@ -7,7 +7,7 @@ title: Search
 FishOnMCExtras adds a powerful **item search bar** to your personal vault, auction house and storage, letting you filter items not just by name, but by comparing specific NBT fields against exact values.
 
 ::: tip What can I search?
-Type a plain word to search item names — like `Pet` - or use a field operator like `rating > 90` to filter by a specific stat. You can combine as many terms as you like in a single search.
+Type a plain word to search item names — like `Pet` - or use a field operator like `rating>90` to filter by a specific stat. You can combine as many terms as you like in a single search.
 :::
 
 ## Basic name search
