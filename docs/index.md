@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: "FishOnMC Extras R Wiki"
-  text: "Wiki for the FishOnMC Extras R (FOER) mod"
+  text: "A QOL mod for the FishOnMC server"
   tagline: 
   actions:
     - theme: brand
