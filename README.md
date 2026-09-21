@@ -21,6 +21,7 @@ Documentation site for the **FishOnMC Extras R (FOER)** mod, built with [VitePre
 │   │       └── [cat]/
 │   │           ├── [ep].md
 │   │           └── [ep].paths.ts
+│   ├── creator/
 │   └── search/
 └── package.json
 ```

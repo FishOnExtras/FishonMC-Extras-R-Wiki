@@ -7,6 +7,9 @@ hero:
   tagline: 
   actions:
     - theme: brand
+      text: Creator
+      link: /creator/
+    - theme: alt
       text: Placeholder
       link: /placeholder/
     - theme: alt
@@ -18,7 +21,7 @@ features:
     title: Placeholders
     details: Documentation about the powerful Placeholder language in FOER
   - icon: 🖊️
-    title: Creators
+    title: Creators (WIP)
     details: Documentation about the powerful Custom Creator Elements, Triggers and Listeners in FOER
   - icon: ➕
     title: Modding API (Not available)
