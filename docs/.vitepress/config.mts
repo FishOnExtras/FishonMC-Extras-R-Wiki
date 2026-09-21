@@ -78,6 +78,7 @@ export default defineConfig({
 
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Creator', link: '/guide/' },
       {
         text: 'Placeholder',
         items: versions.map(({ version, display }) => ({
@@ -93,7 +94,15 @@ export default defineConfig({
     ],
 
     sidebar: {
-      ...buildAllSidebars()
+      ...buildAllSidebars(),
+      '/creator/': [
+        {
+          text: 'Creator',
+          items: [
+            { text: 'Overview', link: '/creator/' }
+          ]
+        }
+      ]
     },
 
     footer: {
@@ -108,7 +117,7 @@ export default defineConfig({
 
     if (pageData.frontmatter.layout === 'home') {
       const latest = versionsFile.versions[0].version
-      pageData.frontmatter.hero.actions[0].link = `/${latest}/placeholder/`
+      pageData.frontmatter.hero.actions[1].link = `/${latest}/placeholder/`
     }
   }
 });
