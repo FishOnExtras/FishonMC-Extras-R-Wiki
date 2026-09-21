@@ -42,21 +42,21 @@ Cypress Lake 12:34
 ```
 :::
 
-## Dynamic segments: `<string>`
+## Dynamic segments: `<string>` `<index>`
 
-Some placeholders contain a segment written as `<string>` - this is a **wildcard**. It means you substitute your own value in that position rather than typing it literally.
+Some placeholders contain a segment written as `<string>` or `<index>` - this is a **wildcard**. It means you substitute your own value in that position rather than typing it literally.
 
 ::: warning Don't type `<string>` literally
-`<string>` is a placeholder for *your own input* - like an item name, a fish size, or a rarity tier. You replace it, you don't keep the brackets.
+`<string>` or `<index>` is a placeholder for *your own input* - like an item name, a fish size, or a rarity tier.
 :::
 
-For example, `stats_data.data.item.<string>.count` becomes:
+For example, `tracker_data.data.<string>.itemstack.lore.<index>` becomes:
 
 ```
-%stats_data.data.item.armorShard.count%
+%tracker_data.data.Tracker Name.itemstack.lore.1%
 ```
 
-to get the catch count for shards specifically.
+to get the lore line at index `1` of tracker `Tracker Name`
 
 ::: tip For `<string[]>` seperate multiple strings just as normal with a dot. Like:
 
