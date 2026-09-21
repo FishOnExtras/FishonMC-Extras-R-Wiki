@@ -15,6 +15,9 @@ hero:
     - theme: alt
       text: Search
       link: /search/
+    - theme: alt
+      text: Download Mod 🔗
+      link: https://modrinth.com/mod/fishonmc-extras-r
 
 features:
   - icon: 🔗

@@ -70,6 +70,8 @@ export default defineConfig({
   cleanUrls: true,
 
   themeConfig: {
+    siteTitle: "FOER Wiki",
+
     logo: {
       src: '/icon.png',
       width: 24,
@@ -78,7 +80,9 @@ export default defineConfig({
 
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Creator', link: '/creator/' },
+      { text: 'Creator', items: [
+        { text: 'Overview', link: '/creator/' }
+      ]},
       {
         text: 'Placeholder',
         items: versions.map(({ version, display }) => ({
@@ -86,7 +90,8 @@ export default defineConfig({
           link: `/${version}/placeholder/`
         }))
       },
-      { text: 'Search', link: '/search/' }
+      { text: 'Search', link: '/search/' },
+      { text: `Download`, link: 'https://modrinth.com/mod/fishonmc-extras-r' }
     ],
 
     socialLinks: [
@@ -107,6 +112,11 @@ export default defineConfig({
 
     footer: {
       message: '<b>FishOnMC-Extras-R-Wiki</b> is not affiliated, associated, authorized, endorsed by, or in any way officially connected with <a href="https://fishonmc.net/">FishOnMC</a><br /><i>Made by DannyPX</i>'
+    },
+
+    docFooter: {
+      prev: false,
+      next: false
     }
   },
 
