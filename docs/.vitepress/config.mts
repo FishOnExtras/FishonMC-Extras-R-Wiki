@@ -78,7 +78,7 @@ export default defineConfig({
 
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Creator', link: '/guide/' },
+      { text: 'Creator', link: '/creator/' },
       {
         text: 'Placeholder',
         items: versions.map(({ version, display }) => ({

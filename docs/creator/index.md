@@ -22,7 +22,7 @@ Custom elements you can display on your screen.
 
 ### HUD Text
 
-Creates custom HUD elements with text. Each line can use [placeholders](/placeholder/) to show live, dynamic data.
+Creates custom HUD elements with text. Each line can use <a :href="`/FishonMC-Extras-R-Wiki/${ latest }/placeholder/`">placeholders</a> to show live, dynamic data.
 
 ### HUD Icons
 
@@ -63,3 +63,9 @@ Tracks numbers, strings, or itemstacks based on conditions and set values.
 ::: info Looking for setup steps?
 This page is just an overview of what each creator type does. See the individual pages for each type for how to actually configure and use them.
 :::
+
+<script setup lang="ts">
+import versionsFile from '../../data/versions.json'
+
+const latest = versionsFile.versions[0].version
+</script>
