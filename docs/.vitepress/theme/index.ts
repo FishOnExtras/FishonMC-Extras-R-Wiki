@@ -3,6 +3,7 @@ import type { Theme } from 'vitepress'
 import DefaultTheme, { VPButton } from 'vitepress/theme'
 import { useRoute } from 'vitepress'
 import NavSearch from './components/NavSearch.vue'
+import PlaceholderEditor from './components/PlaceholderEditor.vue'
 import './style.css'
 
 export default {
@@ -16,6 +17,7 @@ export default {
     })
   },
   enhanceApp({ app, router, siteData }) {
-    app.component('VPButton', VPButton)
+    app.component('VPButton', VPButton),
+    app.component('PlaceholderEditor', PlaceholderEditor)
   }
 } satisfies Theme

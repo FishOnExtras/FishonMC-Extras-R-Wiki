@@ -10,8 +10,11 @@ hero:
       text: Creator
       link: /creator/
     - theme: alt
-      text: Placeholder
+      text: Placeholders
       link: /placeholder/
+    - theme: alt
+      text: Editor
+      link: /editor/
     - theme: alt
       text: Search
       link: /search/
@@ -23,6 +26,9 @@ features:
   - icon: 🔗
     title: Placeholders
     details: Documentation about the powerful Placeholder language in FOER
+  - icon: 📜
+    title: Placeholder Editor
+    details: A full editor with placeholder syntax
   - icon: 🖊️
     title: Creators (WIP)
     details: Documentation about the powerful Custom Creator Elements, Triggers and Listeners in FOER
