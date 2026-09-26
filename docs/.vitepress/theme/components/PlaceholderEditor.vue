@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { withBase } from 'vitepress'
+import { withBase, useData } from 'vitepress'
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import {
   analyze, applyLayout, backspace, computeSignature, computeSuggestions, enter, format, formatParam, highlight,
@@ -56,6 +56,8 @@ const floatStyle = ref<Record<string, string>>({ visibility: 'hidden' })
 const stripped = computed(() => stripNewlines(text.value))
 const spans = computed(() => highlight(stripped.value.text, registry.value ?? undefined))
 const structure = computed(() => analyze(stripped.value.text))
+
+const { isDark } = useData()
 
 const spanClass = (span: Span): string =>
   span.kind === 'depth' ? `pe-d${span.depth % 10}`
@@ -145,8 +147,8 @@ function syncIndentGuides() {
 
 watch(html, () => void nextTick(syncIndentGuides))
 
-const ZOOM_MIN = 0.8
-const ZOOM_MAX = 1.6
+const ZOOM_MIN = 0.5
+const ZOOM_MAX = 5.0
 const ZOOM_STEP = 0.1
 const fontZoom = ref(1)
 const zoomPercent = computed(() => Math.round(fontZoom.value * 100))
@@ -835,6 +837,8 @@ const menuGroups = computed<MenuGroup[]>(() => [
       { kind: 'toggle', label: 'Word wrap', checked: wordWrap.value, run: () => { wordWrap.value = !wordWrap.value }, shortcut: 'Alt+Z' },
       { kind: 'sep' },
       { kind: 'toggle', label: 'Bottom panel', checked: panelOpen.value, run: () => { panelOpen.value = !panelOpen.value }, shortcut: 'Ctrl+P' },
+      { kind: 'sep' },
+      { kind: 'toggle', label: 'Dark mode', checked: isDark.value, run: () => { isDark.value = !isDark.value }, shortcut: 'Ctrl+Shift+D' },
     ],
   },
   {
@@ -913,6 +917,10 @@ function onDocumentKeydown(e: KeyboardEvent) {
       case '/': case '?':
         e.preventDefault()
         dialog.value = { kind: 'shortcuts' }
+        return
+      case 'D': case 'd':
+        e.preventDefault()
+        isDark.value = !isDark.value
         return
     }
     switch (e.code) {
