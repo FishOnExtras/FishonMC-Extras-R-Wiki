@@ -3,6 +3,7 @@ layout: page
 footer: false
 aside: false
 navbar: false
+outline: false
 ---
 
 <div class="full-editor">
@@ -36,5 +37,11 @@ const text = ref()
 .full-editor :deep(.pe-scroll) {
   flex: 1;
   min-height: 0;
+}
+</style>
+
+<style>
+.VPLocalNav {
+  display: none !important;
 }
 </style>
