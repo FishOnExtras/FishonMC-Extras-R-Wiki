@@ -85,10 +85,13 @@ export default defineConfig({
       ]},
       {
         text: 'Placeholder',
-        items: versions.map(({ version, display }) => ({
-          text: display,
-          link: `/${version}/placeholder/`
-        }))
+        items: [
+          { text: 'Editor', link: '/editor/' },
+          ...versions.map(({ version, display }) => ({
+            text: display,
+            link: `/${version}/placeholder/`
+          }))
+        ]
       },
       { text: 'Search', link: '/search/' },
       { text: `Download`, link: 'https://modrinth.com/mod/fishonmc-extras-r' }
