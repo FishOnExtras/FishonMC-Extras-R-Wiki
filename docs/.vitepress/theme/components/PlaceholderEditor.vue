@@ -476,7 +476,7 @@ const signatureId = computed(() => `${uid.value}-signature`)
 const statusTipId = computed(() => `${uid.value}-status-tip`)
 const versionTipId = computed(() => `${uid.value}-version-tip`)
 const minifyTipId = computed(() => `${uid.value}-minify-tip`)
-const beautifyTipId = computed(() => `${uid.value}-beautify-tip`)
+const formatTipId = computed(() => `${uid.value}-format-tip`)
 const optionId = (index: number) => `${uid.value}-option-${index}`
 
 watch(suggestions, () => { active.value = 0 })
@@ -780,7 +780,7 @@ function applyToolbarLayout(layout: (value: string) => string) {
   inputEl.value?.focus({ preventScroll: true })
 }
 
-const beautify = () => applyToolbarLayout(format)
+const formatText = () => applyToolbarLayout(format)
 const minifyText = () => applyToolbarLayout(minify)
 
 
@@ -820,7 +820,7 @@ const menuGroups = computed<MenuGroup[]>(() => [
       { kind: 'sep' },
       { kind: 'action', label: 'Select All', run: selectAllText, shortcut: 'Ctrl+A' },
       { kind: 'sep' },
-      { kind: 'action', label: 'Beautify', run: beautify, disabled: props.readonly, shortcut: 'Ctrl+Shift+B' },
+      { kind: 'action', label: 'Format', run: formatText, disabled: props.readonly, shortcut: 'Ctrl+Shift+B' },
       { kind: 'action', label: 'Minify', run: minifyText, disabled: props.readonly, shortcut: 'Ctrl+Shift+M' },
       { kind: 'sep' },
       { kind: 'action', label: 'Indent', run: indentSelection, disabled: props.readonly, shortcut: 'Tab' },
@@ -857,7 +857,7 @@ function runItem(item: MenuItem) {
   if (item.kind === 'action') closeMenu()
 }
 
-defineExpose({ focus: () => inputEl.value?.focus(), beautify, minify: minifyText })
+defineExpose({ focus: () => inputEl.value?.focus(), format: formatText, minify: minifyText })
 
 
 watch(() => props.modelValue, (value) => {
@@ -904,7 +904,7 @@ function onDocumentKeydown(e: KeyboardEvent) {
     switch (e.key) {
       case 'B': case 'b':
         e.preventDefault()
-        if (!props.readonly) beautify()
+        if (!props.readonly) formatText()
         return
       case 'M': case 'm':
         e.preventDefault()
@@ -1221,10 +1221,10 @@ onBeforeUnmount(() => {
           <span :id="minifyTipId" class="pe-tip-bubble" role="tooltip">Minify</span>
         </span>
         <span class="pe-tip">
-          <button type="button" class="pe-btn" aria-label="Beautify" :aria-describedby="beautifyTipId" :disabled="readonly" @click="beautify">
+          <button type="button" class="pe-btn" aria-label="Format" :aria-describedby="formatTipId" :disabled="readonly" @click="formatText">
             <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 3.5h10M6 7h7M6 10.5h7M3 14h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none" /></svg>
           </button>
-          <span :id="beautifyTipId" class="pe-tip-bubble" role="tooltip">Beautify</span>
+          <span :id="formatTipId" class="pe-tip-bubble" role="tooltip">Format</span>
         </span>
 
         <button type="button" class="pe-btn" aria-label="Keyboard shortcuts" @click="dialog = { kind: 'shortcuts' }">
@@ -1295,7 +1295,7 @@ onBeforeUnmount(() => {
           <span class="pe-row"><span class="pe-keys"><kbd>Ctrl</kbd>+<kbd>O</kbd></span><span>Open…</span></span>
 
           <span class="pe-shortcuts-title">View</span>
-          <span class="pe-row"><span class="pe-keys"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd></span><span>Beautify</span></span>
+          <span class="pe-row"><span class="pe-keys"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd></span><span>Format</span></span>
           <span class="pe-row"><span class="pe-keys"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd></span><span>Minify</span></span>
           <span class="pe-row"><span class="pe-keys"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd></span><span>Toggle line numbers</span></span>
           <span class="pe-row"><span class="pe-keys"><kbd>Alt</kbd>+<kbd>Z</kbd></span><span>Toggle word wrap</span></span>
