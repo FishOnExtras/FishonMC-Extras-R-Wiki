@@ -14,5 +14,6 @@
   "main": "docs/.vitepress/index.md",
   "repository": "https://github.com/FishOnExtras/FishonMC-Extras-R-Wiki",
   "author": "DannyPX",
-  "license": "GPL-3.0-only"
+  "license": "GPL-3.0-only",
+  "type": "module"
 }
