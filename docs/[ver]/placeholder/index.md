@@ -31,7 +31,7 @@ For example:
 ::: tip Placeholder concatenation
 You can concatenate placeholders to have multiple dynamic data points on one text line. Like:
 
-```
+```placeholder
 %boss_bar.location% %boss_bar.time%
 ```
 
@@ -52,7 +52,7 @@ Some placeholders contain a segment written as `<string>` or `<index>` - this is
 
 For example, `tracker_data.data.<string>.itemstack.lore.<index>` becomes:
 
-```
+```placeholder
 %tracker_data.data.Tracker Name.itemstack.lore.1%
 ```
 
@@ -60,13 +60,13 @@ to get the lore line at index `1` of tracker `Tracker Name`
 
 ::: tip For `<string[]>` seperate multiple strings just as normal with a dot. Like:
 
-```
+```placeholder
 %inventory.pet.<string[]>%
 ```
 
 could be used like so:
 
-```
+```placeholder
 %inventory.pet.cbase.1.percent_max%
 ```
 
@@ -89,7 +89,7 @@ uppercase.(value: string|component): dynamic
 ::: warning Placeholders as argument
 Use angle brackets to notate the argument as placeholder. Like:
 
-```
+```placeholder
 %uppercase.(<boss_bar.location>)%
 ```
 :::
@@ -98,7 +98,7 @@ Examples usage:
 
 ::: details Plain string argument
 
-```
+```placeholder
 %uppercase.("hello world")%
 ```
 
@@ -112,7 +112,7 @@ HELLO WORLD
 
 ::: details Placeholder argument
 
-```
+```placeholder
 %uppercase.(<boss_bar.location>)%
 ```
 

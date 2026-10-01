@@ -2,6 +2,7 @@ import { readFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, resolve } from 'path'
 import { defineConfig } from 'vitepress'
+import { placeholderLang } from './theme/scripts/placeholder-lang'
 
 interface VersionEntry {
   version: string
@@ -68,6 +69,10 @@ export default defineConfig({
   ],
 
   cleanUrls: true,
+
+  markdown: {
+    config: (md) => placeholderLang(md)
+  },
 
   themeConfig: {
     siteTitle: "FOER Wiki",
