@@ -55,13 +55,14 @@ title: {{ $params.rawEp }}
 
 <hr>
 
-<details>
-  <summary>Raw path info</summary>
+## Raw path info
 
 - **Category:** `{{ $params.cat }}`
-- **Endpoint:** `{{ $params.rawEp }}`
+- **Endpoint:** 
+```placeholder 
+%{{ $params.rawEp }}% 
+```
 
-</details>
 
 <hr>
 

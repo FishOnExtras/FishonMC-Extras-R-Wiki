@@ -5,6 +5,7 @@ import { useRoute } from 'vitepress'
 import NavSearch from './components/NavSearch.vue'
 import PlaceholderEditor from './components/PlaceholderEditor.vue'
 import './style.css'
+import './placeholder.css'
 
 export default {
   extends: DefaultTheme,
