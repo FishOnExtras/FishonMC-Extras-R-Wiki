@@ -1,5 +1,6 @@
 {
   "versions" : [
+    { "version": "0.3.13", "display": "0.3.13" },
     { "version": "0.3.12", "display": "0.3.12" },
     { "version": "0.3.11", "display": "0.3.11" },
     { "version": "0.3.10", "display": "0.3.10" }
